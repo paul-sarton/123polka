@@ -270,7 +270,7 @@
   }
   .opinion-text p:last-child { margin-bottom: 0; }
   /* Espace entre une analyse inline et la citation suivante */
-  .opinion + blockquote { margin-top: 36px; }
+  .opinion + blockquote {     margin-top: 36px;     padding-top: 36px;     border-top: 1px solid var(--ink);   }    blockquote + .opinion {     border-top: none;     padding-top: 0;     margin-top: 22px;   }
 
   @media (max-width: 800px) {
     .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
