@@ -251,9 +251,12 @@
   .opinion-text p:last-child { margin-bottom: 0; }
 
   /* Section 2 — un peu plus d'espace entre groupes citation+analyse */
-  .opinion + blockquote {
-    margin-top: 60px;
-  }
+.opinion + blockquote {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid var(--line);
+}
+
 
   @media (max-width: 800px) {
     .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
