@@ -16,13 +16,13 @@
     --line: #e5e5e5;
     --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    /* 4 tailles de typo — point. */
+    /* 4 tailles de typo */
     --t-xs: 13px;
     --t-m: 18px;
     --t-l: clamp(32px, 4.2vw, 48px);
     --t-xl: clamp(60px, 11vw, 140px);
 
-    /* Couleurs de tags — tous noirs, texte blanc */
+    /* Tags — tous noirs */
     --tag-societe: #111111;
     --tag-business: #111111;
     --tag-culture: #111111;
@@ -87,13 +87,8 @@
   }
 
   /* HERO */
-  .hero {
-    padding: 60px 40px 60px;
-  }
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .hero { padding: 60px 40px 60px; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
   .hero-title {
     font-size: var(--t-xl);
     font-weight: 800;
@@ -121,14 +116,9 @@
     .hero-tagline { letter-spacing: -0.8px; }
   }
 
-  /* ISSUE WRAP */
-  .issue {
-    padding: 40px 40px 60px;
-  }
-  .issue-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  /* ISSUE */
+  .issue { padding: 40px 40px 60px; }
+  .issue-inner { max-width: 1200px; margin: 0 auto; }
   .issue-date {
     font-size: var(--t-l);
     font-weight: 700;
@@ -143,9 +133,7 @@
     margin: 0 0 50px;
     line-height: 1.5;
   }
-  .issue-intro strong {
-    font-weight: 700;
-  }
+  .issue-intro strong { font-weight: 700; }
 
   /* SECTION */
   .section {
@@ -216,11 +204,11 @@
   }
   .prose strong { font-weight: 600; }
 
-  /* BLOCKQUOTE — sans trait à gauche */
+  /* BLOCKQUOTE — pas de trait à gauche */
   blockquote {
     margin: 0 0 22px;
     padding: 0;
-    border-left: none;
+    border: none;
     font-size: var(--t-m);
     line-height: 1.65;
     color: var(--ink);
@@ -235,21 +223,19 @@
   }
 
   /* ============================== */
-  /* MON AVIS — flèche décalée       */
+  /* MON AVIS — AUCUN TRAIT          */
+  /* Flèche sur sa propre ligne      */
+  /* au-dessus du texte              */
   /* ============================== */
   .opinion {
-    position: relative;
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid var(--ink);
+    margin-top: 44px;
   }
   .opinion-arrow {
-    position: absolute;
-    left: -60px;
-    top: 22px;
+    display: block;
     font-size: var(--t-l);
     font-weight: 800;
     line-height: 1;
+    margin: 0 0 14px;
   }
   .opinion-text {
     font-size: var(--t-m);
@@ -264,36 +250,14 @@
   }
   .opinion-text p:last-child { margin-bottom: 0; }
 
-  /* Section 2 — Analyse juste après une citation : pas de trait, pas de padding */
-  blockquote + .opinion {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 22px;
-  }
-  blockquote + .opinion .opinion-arrow {
-    top: 0;
-  }
-
-  /* Section 2 — Citation juste après une analyse : trait entre les deux */
+  /* Section 2 — un peu plus d'espace entre groupes citation+analyse */
   .opinion + blockquote {
-    margin-top: 36px;
-    padding-top: 36px;
-    border-top: 1px solid var(--ink);
+    margin-top: 60px;
   }
 
   @media (max-width: 800px) {
     .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
     .section-meta { position: static; }
-    .opinion-arrow {
-      position: static;
-      display: block;
-      margin: 0 0 12px 0;
-      top: auto;
-      left: auto;
-    }
-    blockquote + .opinion .opinion-arrow {
-      top: auto;
-    }
   }
   @media (max-width: 700px) {
     .issue { padding: 30px 22px 50px; }
@@ -304,10 +268,7 @@
     padding: 80px 40px;
     border-top: 1px solid var(--line);
   }
-  .archives-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .archives-inner { max-width: 1200px; margin: 0 auto; }
   .archives-head {
     display: flex;
     justify-content: space-between;
@@ -339,10 +300,7 @@
     color: var(--ink);
   }
   .archive-card:hover { opacity: 0.6; }
-  .archive-num {
-    font-size: var(--t-m);
-    font-weight: 600;
-  }
+  .archive-num { font-size: var(--t-m); font-weight: 600; }
   .archive-date {
     font-size: var(--t-xs);
     text-transform: uppercase;
@@ -394,10 +352,7 @@
     letter-spacing: 1.5px;
     font-weight: 600;
   }
-  .footer-links a {
-    text-decoration: none;
-    color: var(--ink);
-  }
+  .footer-links a { text-decoration: none; color: var(--ink); }
   .footer-links a:hover { opacity: 0.5; }
   .footer-bottom {
     max-width: 1200px;
@@ -564,9 +519,7 @@
 </section>
 
 
-<!-- ============================================ -->
-<!-- ARCHIVES                                      -->
-<!-- ============================================ -->
+<!-- ARCHIVES -->
 <section class="archives" id="archives">
   <div class="archives-inner">
     <div class="archives-head">
@@ -574,14 +527,12 @@
       <div class="archives-count">01 numéro</div>
     </div>
     <div>
-
       <a href="#dernier-numero" class="archive-card">
         <div class="archive-num">N°01</div>
         <div class="archive-date">Mai 2026</div>
         <h3 class="archive-title">L'ordinaire — Le business, toujours le business — Le luxe de ne pas choisir</h3>
         <div class="archive-arrow">→</div>
       </a>
-
     </div>
   </div>
 </section>
