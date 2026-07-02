@@ -16,13 +16,11 @@
     --line: #e5e5e5;
     --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    /* 4 tailles de typo */
     --t-xs: 13px;
     --t-m: 18px;
     --t-l: clamp(32px, 4.2vw, 48px);
     --t-xl: clamp(60px, 11vw, 140px);
 
-    /* Tags — tous noirs */
     --tag-societe: #111111;
     --tag-business: #111111;
     --tag-culture: #111111;
@@ -100,15 +98,9 @@
     font-size: var(--t-l);
     font-weight: 700;
     color: var(--ink);
-    margin: 0 0 28px;
+    margin: 0;
     line-height: 1.1;
     letter-spacing: -1.5px;
-  }
-  .hero-categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0;
   }
   @media (max-width: 700px) {
     .hero { padding: 40px 22px 40px; }
@@ -125,17 +117,13 @@
     letter-spacing: -1.5px;
     margin: 0 0 24px;
   }
-.issue-intro {
+  .issue-intro {
     font-size: 18px;
     font-weight: 400;
     color: var(--ink);
     max-width: 1040px;
     margin: 0 0 50px;
     line-height: 1.5;
-  }
-
-  @media (max-width: 800px) {
-    .issue-intro { margin-left: 0; }
   }
   .issue-intro strong { font-weight: 700; }
 
@@ -200,6 +188,21 @@
     line-height: 1.4;
   }
 
+  /* Sous-titres à l'intérieur d'une section (juin) */
+  .subhead {
+    font-size: var(--t-m);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 36px 0 14px;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+  }
+  .section-body > .subhead:first-of-type,
+  .section-body > .prose:first-of-type + .subhead,
+  .section-body > .section-title + .subhead {
+    margin-top: 0;
+  }
+
   .prose p {
     font-size: var(--t-m);
     margin: 0 0 18px;
@@ -208,7 +211,6 @@
   }
   .prose strong { font-weight: 600; }
 
-  /* BLOCKQUOTE — pas de trait à gauche */
   blockquote {
     margin: 0 0 22px;
     padding: 0;
@@ -226,13 +228,9 @@
     word-break: break-word;
   }
 
-  /* ============================== */
-  /* MON AVIS — AUCUN TRAIT          */
-  /* Flèche sur sa propre ligne      */
-  /* au-dessus du texte              */
-  /* ============================== */
+  /* MON AVIS */
   .opinion {
-    margin-top: 30px;
+    margin-top: 28px;
   }
   .opinion-arrow {
     display: block;
@@ -254,13 +252,11 @@
   }
   .opinion-text p:last-child { margin-bottom: 0; }
 
-  /* Section 2 — un peu plus d'espace entre groupes citation+analyse */
-.opinion + blockquote {
-  margin-top: 60px;
-  padding-top: 60px;
-  border-top: 1px solid var(--ink);
-}
-
+  .opinion + blockquote {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid var(--line);
+  }
 
   @media (max-width: 800px) {
     .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
@@ -268,6 +264,13 @@
   }
   @media (max-width: 700px) {
     .issue { padding: 30px 22px 50px; }
+  }
+
+  /* SÉPARATEUR ENTRE NUMÉROS */
+  .issue-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0 40px;
   }
 
   /* ARCHIVES */
@@ -388,7 +391,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-brand">1, 2, 3 </a>
+    <a href="#" class="nav-brand">1, 2, 3</a>
     <div class="nav-links">
       <a href="#dernier-numero">Dernier numéro</a>
       <a href="#archives">Archives</a>
@@ -406,9 +409,110 @@
 
 
 <!-- ============================================ -->
-<!-- DERNIER NUMÉRO                                -->
+<!-- N°02 — JUIN 2026 — DERNIER NUMÉRO             -->
 <!-- ============================================ -->
 <section class="issue" id="dernier-numero">
+  <div class="issue-inner">
+
+    <h2 class="issue-date">Juin 2026.</h2>
+    <p class="issue-intro"><strong>1, 2, 3 Polka ce mois-ci :</strong><br>
+      1. ce que je retiens de la réflexion d'Open AI<br>
+      2. ce que je retiens de l'encyclique du saint Pape Léon XIV<br>
+      3. les rapprochements que je me suis permis de faire entre les 2 réflexions (ma psy me l'avait pourtant déconseillé !)
+    </p>
+
+    <!-- 1 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">1.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Ce que je retiens de la réflexion d'Open AI</h3>
+
+        <h4 class="subhead">1ère idée</h4>
+        <div class="prose">
+          <p>Open AI se veut très clair sur ce que doit être l'objectif de cette révolution technologique : la prospérité, pour tous.tes. La promesse est de transformer une intelligence abondante en meilleures conditions de vie : baisser le coût des biens essentiels, guérir ou prévenir des maladies, lutter contre la pénurie alimentaire, accélérer la production d'énergie verte. En somme, transformer le progrès technique en progrès social.</p>
+          <p>Ils évoquent des solutions méga concrètes : le Fonds de richesse publique (une part des gains de l'IA reversée à chaque citoyen) ; des projets pilotes de semaine de quatre jours sans perte de salaire.</p>
+          <p>« Les promesses n'engagent que ceux qui y croient » — bien dit cher Chirac. Un rêve d'avoir réussi à caler une citation du style.</p>
+        </div>
+
+        <h4 class="subhead">2ème idée</h4>
+        <div class="prose">
+          <p>Cette révolution perturbe tout sur son passage — et les marchés, seuls, pourront pas gérer les impacts. L'intelligence abondante déployée perturbe et remodèle des industries entières à une vitesse et une échelle inédites : des milliers d'emplois disparaîtront, d'autres évolueront, d'autres encore naîtront.</p>
+          <p>Mais, le point clé : ces changements n'arriveront pas de façon homogène, ils se feront de manière anarchique, sans pouvoir s'anticiper vraiment. Il va donc falloir cadrer, encadrer, recadrer. En temps normal, le capitalisme imparfait s'autogère plutôt pas mal. Mais ici, Open AI insiste sur le rôle d'une nouvelle politique industrielle. Son rôle serait essentiel, car les seules forces du marché ne suffiraient pas, et que les opportunités et risques générés ne seraient pas gérés par les institutions existantes.</p>
+          <p>En gros, face à la voiture, le risque était visible, lent. Assez pratique pour légiférer après coup. Face à l'IA, le risque est opaque, rapide, et mondial. C'est pour cette raison qu'OpenAI plaide pour une nouvelle vraie politique industrielle, et non du bricolage avec les outils existants.</p>
+        </div>
+
+        <h4 class="subhead">3ème idée</h4>
+        <div class="prose">
+          <p>On aura beau cadrer, encadrer, une vraie solution serait l'agilité de nos systèmes politiques et juridiques. Open AI parle beaucoup de résilience. Bâtir la résilience face à l'IA signifierait de permettre aux personnes et aux institutions de s'adapter vite, de conserver une autonomie réelle sur l'usage de ces systèmes, et de permettre que la prospérité soit partagée entre tous.tes.</p>
+          <p>La mise en place de garde-fous juridiques en amont doit continuer — mais ça ne suffira pas. Il faudrait, en plus, de l'agilité dans nos systèmes politiques et juridiques de la vraie vie. Comme un système de surveillance en temps réel, de la transparence avec la publication des spécifications des modèles, le signalement des incidents et usages détournés à une autorité publique.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">2.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Ce que je retiens de l'encyclique du saint Pape Léon XIV</h3>
+
+        <div class="prose">
+          <p>Cette encyclique du Pape commence par une longue intro qui pose le problème posé par cette révolution technologique. D'abord, le but n'est pas de se prononcer "pour ou contre" la technologie, qui est une réalité profondément humaine. La question est de choisir la logique dans laquelle on soutient, on oriente cette révolution : la logique de la puissance ou celle du bien commun ?</p>
+          <p>Longtemps, les États ont financé et orienté les innovations de rupture, via le militaire ou la recherche publique (GPS, nucléaire, Internet). Aujourd'hui, c'est différent : ce sont désormais quelques grands acteurs privés internationaux (parfois plus puissants que des États) qui détiennent ce pouvoir. Dans ce contexte, comment réussir à l'orienter (au maximum) vers le bien commun ?</p>
+        </div>
+
+        <h4 class="subhead">L'IA n'est pas neutre : un pouvoir déguisé en objectivité</h4>
+        <div class="prose">
+          <p>Premier truc assez contre-intuitif : personne ne comprend vraiment l'IA, même pas ceux qui la fabriquent. Le Pape dit qu'elle est « cultivée » plus que « construite » : on ne l'assemble pas comme une montre, on crée un terrain sur lequel elle pousse toute seule, mais son fonctionnement reste (en grande partie) une boîte noire. Alors la présenter comme « objective », c'est un peu du flan. Parce que tout système fait des choix (ce qu'il mesure, ce qu'il ignore), et embarque donc une vision de l'humain, qu'on le veuille ou non. C'est un argument central : l'IA n'est pas neutre.</p>
+          <p>Alors, ceux qui détiennent les ressources techniques pourraient imposer ce qu'il faut croire ou penser — qui glisse vers le totalitarisme. Bref, une IA vendue comme neutre, c'est en fait un pouvoir. Et un pouvoir qu'on croit objectif est le plus difficile à contester.</p>
+        </div>
+
+        <h4 class="subhead">L'apologie de la limite, le principe anti-IA par excellence</h4>
+        <div class="prose">
+          <p>Le danger n'est pas tel ou tel mauvais usage, mais le vrai danger réside dans la logique de l'efficacité, du contrôle et du profit, qu'elle devienne le critère absolu qui décide de ce qui compte et de ce qui peut être écarté. Plus puissant ne signifie pas meilleur — un progrès technique sans progrès moral se retourne contre l'homme.</p>
+          <p>Selon le Pape, le vrai péril serait qu'une vision anti-humaine (humaniste ?) finisse par paraître normale : celle où le graal consisterait à éliminer toute fragilité et à tout contrôler, où l'homme se voit comme un projet à optimiser. Le pape oppose à cela l'éloge de la limite : car c'est précisément dans la finitude, la fragilité, la souffrance que naissent la compassion, l'amour, l'expérience spirituelle et l'ouverture à l'autre.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">3.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Des rapprochements OpenAI × Pape Léon XIV ?</h3>
+
+        <h4 class="subhead">Une convergence ?</h4>
+        <div class="prose">
+          <p>Les deux réflexions partent de la même peur : la concentration. OpenAI est clair : « l'échec serait une IA contrôlée par quelques-uns », et le marché seul « ne suffit pas ». Le pape est clair : le pouvoir technologique a « changé de mains », il devient « privatisé, opaque, difficile à orienter vers le bien commun ».</p>
+          <p>Deux points de départ, qui arrivent à une même conclusion : il faut un cadre clair posé, animé et incarné par le politique. La main invisible et l'algorithme ne vont pas redistribuer tout seuls ! Si le chef de l'Église et le patron du labo IA le plus offensif tombent d'accord sur le diagnostic, ce n'est plus un avis, c'est un signal !!!</p>
+        </div>
+
+        <h4 class="subhead">La divergence de fond, que je trouve passionnante</h4>
+        <div class="prose">
+          <p>La plus grosse divergence pourrait être sur la notion de progrès. On l'a vu dans le premier et deuxième temps, les deux réflexions souhaitent que l'IA profite à tous.tes, mais ils ne mettent pas la même chose derrière le concept de progrès.</p>
+          <p>Pour OpenAI, le progrès, c'est la prospérité partagée : une vie meilleure, moins chère, plus sûre, pour le plus grand nombre.</p>
+          <p>Pour le Pape, la prospérité ne suffit pas à mesurer un progrès : « on peut avoir plus sans être plus ». Une société plus riche mais qui ne vit que pour produire et optimiser serait même, dit-il, une « régression ». La prospérité ne l'intéresse pas, si elle ne sert pas à faire grandir les personnes, respecter les plus fragiles, nourrir les relations.</p>
+          <p>OpenAI mesure le progrès à la prospérité, là où le Pape répond que la prospérité n'est pas la mesure de l'être humain. Vous trouvez que ça tient ?</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<hr class="issue-divider">
+
+
+<!-- ============================================ -->
+<!-- N°01 — MAI 2026 — ARCHIVÉ                     -->
+<!-- ============================================ -->
+<section class="issue" id="numero-01">
   <div class="issue-inner">
 
     <h2 class="issue-date">Mai 2026.</h2>
@@ -465,7 +569,7 @@
         </blockquote>
         <div class="opinion">
           <span class="opinion-arrow">→</span>
-          <p class="opinion-text">Il existe des dizaines de méthodes, d'outils pour construire et faire évoluer une plateforme numérique. La majorité de ces outils est bien pensée et permet par exemple la priorisation objective, un angle de vue exhaustif pour ne zapper aucun enjeu. Mais le vrai talent, ce n'est pas de les appliquer à la lettre, c'est de savoir quand s'en échapper. Pour y laisser entrer la vraie vie : un peu d'intuition, des contraintes intangibles, parfois même une décision irrationnelle assumée. Le framework est un super support pour penser, pas un substitut à la pensée!</p>
+          <p class="opinion-text">Il existe des dizaines de méthodes, d'outils pour construire et faire évoluer une plateforme numérique. La majorité de ces outils est bien pensée et permet par exemple la priorisation objective, un angle de vue exhaustif pour ne zapper aucun enjeu. Mais le vrai talent, ce n'est pas de les appliquer à la lettre, c'est de savoir quand s'en échapper. Pour y laisser entrer la vraie vie : un peu d'intuition, des contraintes intangibles, parfois même une décision irrationnelle assumée. Le framework est un super support pour penser, pas un substitut à la pensée !</p>
         </div>
 
         <blockquote>
@@ -520,20 +624,31 @@
 </section>
 
 
-<!-- ARCHIVES -->
+<!-- ============================================ -->
+<!-- ARCHIVES                                      -->
+<!-- ============================================ -->
 <section class="archives" id="archives">
   <div class="archives-inner">
     <div class="archives-head">
       <h2 class="archives-title">Archives</h2>
-      <div class="archives-count">01 numéro</div>
+      <div class="archives-count">02 numéros</div>
     </div>
     <div>
+
       <a href="#dernier-numero" class="archive-card">
+        <div class="archive-num">N°02</div>
+        <div class="archive-date">Juin 2026</div>
+        <h3 class="archive-title">Ce que je retiens d'OpenAI — L'encyclique du Pape Léon XIV — Rapprochements OpenAI × Pape</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+
+      <a href="#numero-01" class="archive-card">
         <div class="archive-num">N°01</div>
         <div class="archive-date">Mai 2026</div>
         <h3 class="archive-title">La puissance de l'ordinaire — La tech au service du business — Le luxe de ne pas choisir</h3>
         <div class="archive-arrow">→</div>
       </a>
+
     </div>
   </div>
 </section>
