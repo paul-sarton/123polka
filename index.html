@@ -154,41 +154,8 @@
     letter-spacing: -2px;
     margin: 0 0 14px;
   }
-  .section-source-line {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    margin: 0 0 32px;
-  }
-  .section-source {
-    font-size: var(--t-m);
-    color: var(--ink-mute);
-    font-weight: 500;
-    margin: 0;
-  }
-  .tag {
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: var(--t-m);
-    font-weight: 600;
-    color: #ffffff;
-    border-radius: 4px;
-    line-height: 1.2;
-  }
-  .tag-societe { background: var(--tag-societe); color: #ffffff; }
-  .tag-business { background: var(--tag-business); color: #ffffff; }
-  .tag-culture { background: var(--tag-culture); color: #ffffff; }
 
-  .section-deck {
-    font-size: var(--t-m);
-    font-weight: 600;
-    color: var(--ink);
-    margin: 0 0 22px;
-    line-height: 1.4;
-  }
-
-  /* Sous-titres à l'intérieur d'une section (juin) */
+  /* Sous-titres à l'intérieur d'une section */
   .subhead {
     font-size: var(--t-m);
     font-weight: 700;
@@ -197,8 +164,6 @@
     line-height: 1.4;
     letter-spacing: -0.2px;
   }
-  .section-body > .subhead:first-of-type,
-  .section-body > .prose:first-of-type + .subhead,
   .section-body > .section-title + .subhead {
     margin-top: 0;
   }
@@ -211,66 +176,12 @@
   }
   .prose strong { font-weight: 600; }
 
-  blockquote {
-    margin: 0 0 22px;
-    padding: 0;
-    border: none;
-    font-size: var(--t-m);
-    line-height: 1.65;
-    color: var(--ink);
-  }
-  blockquote p { margin: 0 0 14px; }
-  blockquote p:last-child { margin-bottom: 0; }
-
-  .link-inline {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    word-break: break-word;
-  }
-
-  /* MON AVIS */
-  .opinion {
-    margin-top: 28px;
-  }
-  .opinion-arrow {
-    display: block;
-    font-size: var(--t-l);
-    font-weight: 800;
-    line-height: 1;
-    margin: 0 0 14px;
-  }
-  .opinion-text {
-    font-size: var(--t-m);
-    font-weight: 600;
-    line-height: 1.55;
-    color: var(--ink);
-    margin: 0;
-  }
-  .opinion-text p {
-    margin: 0 0 14px;
-    font-weight: 600;
-  }
-  .opinion-text p:last-child { margin-bottom: 0; }
-
-  .opinion + blockquote {
-    margin-top: 60px;
-    padding-top: 60px;
-    border-top: 1px solid var(--line);
-  }
-
   @media (max-width: 800px) {
     .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
     .section-meta { position: static; }
   }
   @media (max-width: 700px) {
     .issue { padding: 30px 22px 50px; }
-  }
-
-  /* SÉPARATEUR ENTRE NUMÉROS */
-  .issue-divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 0 40px;
   }
 
   /* ARCHIVES */
@@ -391,7 +302,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-brand">1, 2, 3</a>
+    <a href="/" class="nav-brand">1, 2, 3</a>
     <div class="nav-links">
       <a href="#dernier-numero">Dernier numéro</a>
       <a href="#archives">Archives</a>
@@ -506,124 +417,6 @@
 </section>
 
 
-<hr class="issue-divider">
-
-
-<!-- ============================================ -->
-<!-- N°01 — MAI 2026 — ARCHIVÉ                     -->
-<!-- ============================================ -->
-<section class="issue" id="numero-01">
-  <div class="issue-inner">
-
-    <h2 class="issue-date">Mai 2026.</h2>
-    <p class="issue-intro"><strong>1, 2, 3 Polka ce mois-ci :</strong><br>
-      1. ma newsletter préférée Komando qui parle de l'ordinaire, comment il peut surprendre et marquer<br>
-      2. un boss de la tech qui nous partage son analyse critique des méthodes et framework produit (ça fait du bien !)<br>
-      3. une super initiative d'un théâtre canadien qui décrit un nouveau luxe de notre époque : ne plus avoir à faire de choix
-    </p>
-
-    <!-- 1 -->
-    <article class="section">
-      <div class="section-meta">
-        <div class="section-num">1.</div>
-      </div>
-      <div class="section-body">
-        <h3 class="section-title">La puissance de l'ordinaire</h3>
-        <div class="section-source-line">
-          <p class="section-source">Tiré de la newsletter Komando</p>
-          <span class="tag tag-societe">Société</span>
-        </div>
-        <div class="prose">
-          <p>Cela vous paraîtra curieux pour une newsletter sur la créativité mais aujourd'hui, j'ai envie de vous parler… d'ordinaire. Je me suis fait cette réflexion à partir de la série Extra-ordinaire d'Agathe Hernandez : des photos de scènes du quotidien (une table, un café, une lumière…) qui, prises avec attention, deviennent presque précieuses. Rien d'exceptionnel, justement. Et c'est tout le point. Même mood du côté d'Ezechiel dans le dernier numéro de Pomélo qui défend les « restaurants parfaitement ordinaires », ceux où il n'y a ni concept, ni storytelling, ni expérience pensée pour être racontée : juste des endroits très bons, très simples, où l'on mange bien (et sans faire 1h de queue parce que c'est le dernier endroit hype à Paris).</p>
-          <p>Alors, oui, vive ces moments qui ne sont pas faits pour être optimisés, ni transformés en contenu. Pendant des années, on a cherché à rendre chaque moment « extraordinaire » : des expériences, des concepts, des formats, des lieux… Tout devait être pensé, scénarisé, différenciant. Et à force… tout a fini par se ressembler. Alors peut-être (?) qu'on est en train d'assister à un retournement et qu'on en revient à des moments qui ne sont pas faits pour être optimisés, ni transformés en contenu, mais juste vraiment vécus.</p>
-        </div>
-        <div class="opinion">
-          <span class="opinion-arrow">→</span>
-          <div class="opinion-text">
-            <p>J'adore ces quelques lignes. Elles racontent bien comment un moment ordinaire, classique, répété peut marquer. Un menu entrée/plat/dessert à 15€ dans la brasserie d'en bas peut nous surprendre, le café habituel du mardi 8h45, après l'école, peut être renversant, la séance de sport hebdo du mercredi peut, cette semaine, nous faire chavirer.</p>
-            <p>L'exception, l'éphémère ne sont pas les seuls à créer de l'intensité. Ce qui nous marque n'est pas forcément ce qui sort de l'ordinaire. Un lieu ordinaire peut servir de terrain de jeu à un moment singulier, qui marque.</p>
-            <p>On a donc besoin de ces lieux ordinaires, qui se créent avec de la stabilité, du temps, de l'habitude. Un café, une salle de sport, un resto, là depuis 15 ans. Un grand respect à tous ces gens qui font vivre ces lieux, stables dans le temps, réguliers, ordinaires.</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2 -->
-    <article class="section">
-      <div class="section-meta">
-        <div class="section-num">2.</div>
-      </div>
-      <div class="section-body">
-        <h3 class="section-title">La tech au service du business, et non l'inverse</h3>
-        <div class="section-source-line">
-          <p class="section-source">Tiré de la newsletter Le Ticket</p>
-          <span class="tag tag-business">Business</span>
-        </div>
-        <div class="prose">
-          <p>François de Bodinat, l'ex boss du produit de la start-up Younited, vient de publier un livre sur la réalité du rôle de leader produit. Un livre qui étonne par sa transparence et ses nuances, loin du théâtre de LinkedIn.</p>
-          <p><strong>Mes 3 extraits préférés :</strong></p>
-        </div>
-
-        <blockquote>
-          <p>"Tu auras beau venir avec ton framework (aka méthode) de priorisation chiadé, tu vas te retrouver parfois dans des cas où on met la priorité sur l'Espagne, parce que son responsable a joué au tennis avec le CEO quelques semaines auparavant. Tu ne peux pas l'empêcher et je pense qu'il ne faut même pas essayer. C'est propre au système qui reste profondément humain. Toutefois, tu peux faire en sorte que chaque décision et les conséquences que cela implique soient claires pour tout le monde."</p>
-        </blockquote>
-        <div class="opinion">
-          <span class="opinion-arrow">→</span>
-          <p class="opinion-text">Il existe des dizaines de méthodes, d'outils pour construire et faire évoluer une plateforme numérique. La majorité de ces outils est bien pensée et permet par exemple la priorisation objective, un angle de vue exhaustif pour ne zapper aucun enjeu. Mais le vrai talent, ce n'est pas de les appliquer à la lettre, c'est de savoir quand s'en échapper. Pour y laisser entrer la vraie vie : un peu d'intuition, des contraintes intangibles, parfois même une décision irrationnelle assumée. Le framework est un super support pour penser, pas un substitut à la pensée !</p>
-        </div>
-
-        <blockquote>
-          <p>"Je dis notamment que les clients ne portent pas les conséquences. Dit autrement, tu ne peux pas faire tout ce que les clients demandent car ils n'ont pas conscience des conséquences. On dit souvent qu'il faut écouter le client. Certes. Mais il n'est pas dans ton entreprise. Ce n'est pas son problème de savoir si tu es rentable ou non ! Il ne peut donc pas dicter ta roadmap. C'est toi qui paies les conséquences, pas le client."</p>
-        </blockquote>
-        <div class="opinion">
-          <span class="opinion-arrow">→</span>
-          <p class="opinion-text">Je trouve très cool qu'un mec comme lui partage cette nuance. L'écoute des clients est essentielle : ce sont ceux qui ressentent les vraies frictions, qui voient ce que tu ne vois plus depuis l'intérieur. Leur regard peut avoir beaucoup de valeur. Mais l'équipe a ensuite un gros défi : interpréter ces feedbacks, les prioriser, les remettre dans le contexte et les enjeux du moment de l'entreprise. Pour ensuite pouvoir prendre, eux-mêmes, les meilleures décisions.</p>
-        </div>
-
-        <blockquote>
-          <p>"Même avant l'IA, le goulot d'étranglement a toujours été la prise de décision de ce qu'il faut construire. L'IA ne fait qu'amplifier cela. Plus tu construis et plus il faut décider où aller et quoi faire. D'une certaine façon, c'est le retour en force du Product Marketing : la personne qui va comprendre le marché, le positionnement, la cible à atteindre, la distribution… À mon avis, les Product Managers qui auront une vision très marketing s'en sortiront le mieux.</p>
-          <p>Évidemment, il faut avoir des compétences en IA. Mais pas au point de vouloir prendre la place des tech. Il y a un monde entre vibe coder et faire un vrai produit. La communauté ne doit pas se tromper de direction : le problème reste la prise de décision business."</p>
-        </blockquote>
-        <div class="opinion">
-          <span class="opinion-arrow">→</span>
-          <div class="opinion-text">
-            <p>C'est de plus en plus facile de construire un outil, de concrétiser une idée, de la tester. La différence se fait donc, encore plus qu'avant, sur la lecture d'un contexte, d'un marché : identifier le gros pain d'une cible, imaginer une solution pertinente pour y répondre, définir son mode de distribution, son prix. Une fois pensés, l'exécution est aujourd'hui plus rapide. Mais, une exécution sans un sens business va vite… nulle part. La technologie devient une commodité, le sens business reste le vrai avantage.</p>
-            <p>Dans le dernier épisode GDIY, Yann Le Cun évoque justement la prochaine étape de l'IA : celle qui chercherait à reproduire la compréhension du réel (propre à l'intelligence humaine), l'intuition d'un contexte, la lecture d'une situation. Ces "world models" finiront peut-être par développer ce fameux sens business : capter un marché, lire entre les lignes, comprendre une cible. A suivre !</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 3 -->
-    <article class="section">
-      <div class="section-meta">
-        <div class="section-num">3.</div>
-      </div>
-      <div class="section-body">
-        <h3 class="section-title">Le luxe de ne pas choisir</h3>
-        <div class="section-source-line">
-          <p class="section-source">Tiré de la newsletter Komando</p>
-          <span class="tag tag-culture">Culture</span>
-        </div>
-        <p class="section-deck">Acheter un abonnement… sans connaître la programmation.</p>
-        <div class="prose">
-          <p><strong>En résumé —</strong> Un théâtre de Montréal teste un abonnement mystère pour la saison 2026-2027. Pendant trois semaines, les spectateurs peuvent acheter un forfait de 4 spectacles jusqu'à -50%, avec les meilleures places… sans connaître ni les pièces, ni les distributions, révélées fin mai.</p>
-          <p><strong>Pourquoi c'est intéressant —</strong> Parce que certaines institutions culturelles ne vendent plus seulement un programme mais une promesse artistique. L'objectif ? Susciter la curiosité, pimenter l'expérience, accélérer les ventes en amont et attirer un public moins dépendant des têtes d'affiche. Et c'est une vraie tendance qu'on voit monter, où le mystère devient un levier d'engagement.</p>
-          <p>C'est le cas par exemple de Secret Cinema, au Royaume-Uni, avec des projections dont le film et le lieu sont tenus secrets jusqu'au dernier moment. Des festivals et salles proposent aussi des blind tickets pour attirer des publics curieux plutôt que fans d'un nom. Il y a aussi des offres ponctuelles de billets surprise dans certains théâtres ou salles européennes, où seule la date ou le genre est connu, ou les pochettes surprises chez des libraires. Le point commun ?</p>
-          <p>Dans un monde où tout est détaillé à l'avance, comparé, optimisé, le mystère devient une valeur, à condition que la marque soit assez forte pour créer la confiance. Et au fond, c'est peut-être ça le vrai insight : on n'achète plus seulement un contenu, on achète (aussi) l'envie de se laisser surprendre.</p>
-          <p>Découvrir le concept de l'abonnement mystère : <a class="link-inline" href="https://rideauvert.qc.ca/abonnement-mystere/?utm_source=substack&utm_medium=email" target="_blank" rel="noopener">rideauvert.qc.ca/abonnement-mystere</a></p>
-        </div>
-        <div class="opinion">
-          <span class="opinion-arrow">→</span>
-          <p class="opinion-text">100% raccord : avec 938 nouvelles infos par minute et 20 options pour à peu près tout, un vrai luxe devient de ne plus avoir à choisir. Je ne choisis pas mon menu au resto, ni mon film au ciné, ni ma séance à la salle. Je me laisse porter, guider par une marque, un coach, un chef en qui j'ai confiance. Parce que choisir, c'est aussi renoncer, et renoncer 50 fois par jour, c'est épuisant. Le nouveau luxe, ce n'est plus l'abondance, c'est la confiance qui permet de lâcher prise. Et franchement, on kiff !!!!</p>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
 <!-- ============================================ -->
 <!-- ARCHIVES                                      -->
 <!-- ============================================ -->
@@ -642,7 +435,7 @@
         <div class="archive-arrow">→</div>
       </a>
 
-      <a href="#numero-01" class="archive-card">
+      <a href="numero-01.html" class="archive-card">
         <div class="archive-num">N°01</div>
         <div class="archive-date">Mai 2026</div>
         <h3 class="archive-title">La puissance de l'ordinaire — La tech au service du business — Le luxe de ne pas choisir</h3>
