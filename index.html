@@ -1,117 +1,432 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>1, 2, 3 Polka — Juin 2026</title>
+<title>1, 2, 3 Polka</title>
+<meta name="description" content="3 contenus choisis, loin du bruit, près du fond, une fois par mois, par Polka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --ink-mute: #888888;
+    --line: #e5e5e5;
+    --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --t-xs: 13px;
+    --t-m: 18px;
+    --t-l: clamp(32px, 4.2vw, 48px);
+    --t-xl: clamp(60px, 11vw, 140px);
+    --tag-societe: #111111;
+    --tag-business: #111111;
+    --tag-culture: #111111;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: var(--t-m);
+    line-height: 1.55;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; }
+  em, i { font-style: normal; }
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+  }
+  .nav-brand {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 0.5; }
+  @media (max-width: 700px) {
+    .nav-inner { padding: 18px 22px; }
+    .nav-links { gap: 14px; }
+  }
+  /* HERO */
+  .hero { padding: 60px 40px 60px; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
+  .hero-title {
+    font-size: var(--t-xl);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -5px;
+    margin: 0 0 32px;
+  }
+  .hero-tagline {
+    font-size: var(--t-l);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+  }
+  @media (max-width: 700px) {
+    .hero { padding: 40px 22px 40px; }
+    .hero-title { letter-spacing: -2px; }
+    .hero-tagline { letter-spacing: -0.8px; }
+  }
+  /* ISSUE */
+  .issue { padding: 40px 40px 60px; }
+  .issue-inner { max-width: 1200px; margin: 0 auto; }
+  .issue-date {
+    font-size: var(--t-l);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 0 0 24px;
+  }
+  .issue-intro {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 1040px;
+    margin: 0 0 50px;
+    line-height: 1.5;
+  }
+  .issue-intro strong { font-weight: 700; }
+  /* SECTION */
+  .section {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+  }
+  .section-meta {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  .section-num {
+    font-size: var(--t-l);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin: 0;
+  }
+  .section-body { max-width: 920px; }
+  .section-title {
+    font-size: var(--t-l);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 0 0 14px;
+  }
+  /* Sous-titres à l'intérieur d'une section */
+  .subhead {
+    font-size: var(--t-m);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 36px 0 14px;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+  }
+  .section-body > .section-title + .subhead {
+    margin-top: 0;
+  }
+  .prose p {
+    font-size: var(--t-m);
+    margin: 0 0 18px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .prose strong { font-weight: 600; }
+  @media (max-width: 800px) {
+    .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+    .section-meta { position: static; }
+  }
+  @media (max-width: 700px) {
+    .issue { padding: 30px 22px 50px; }
+  }
+  /* ARCHIVES */
+  .archives {
+    padding: 80px 40px;
+    border-top: 1px solid var(--line);
+  }
+  .archives-inner { max-width: 1200px; margin: 0 auto; }
+  .archives-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .archives-title {
+    font-size: var(--t-l);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -1.5px;
+  }
+  .archives-count {
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .archive-card {
+    display: grid;
+    grid-template-columns: 80px 140px 1fr auto;
+    gap: 30px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .archive-card:hover { opacity: 0.6; }
+  .archive-num { font-size: var(--t-m); font-weight: 600; }
+  .archive-date {
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .archive-title {
+    font-size: var(--t-m);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+  }
+  .archive-arrow { font-size: var(--t-m); }
+  @media (max-width: 800px) {
+    .archive-card { grid-template-columns: 60px 1fr; gap: 16px; padding: 18px 0; }
+    .archive-date, .archive-arrow { display: none; }
+  }
+  @media (max-width: 700px) {
+    .archives { padding: 50px 22px; }
+  }
+  /* FOOTER */
+  .footer {
+    padding: 50px 40px 30px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-brand {
+    font-size: var(--t-l);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin: 0;
+  }
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  .footer-links a { text-decoration: none; color: var(--ink); }
+  .footer-links a:hover { opacity: 0.5; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bottom a { text-decoration: none; color: var(--ink-mute); }
+  .footer-bottom a:hover { color: var(--ink); }
+  @media (max-width: 700px) {
+    .footer { padding: 40px 22px 24px; }
+  }
+</style>
 </head>
-<body style="margin:0; padding:0; background-color:#ffffff;">
-
-<!-- préheader caché -->
-<div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#ffffff; font-size:1px; line-height:1px;">
-Spécial IA : OpenAI vs le Pape Léon XIV. 3 temps, loin du bruit, près du fond.
-</div>
-
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff;">
-<tr><td align="center" style="padding:0;">
-
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background-color:#ffffff;">
-
-  <!-- NAV -->
-  <tr><td style="padding:22px 32px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:#111111;">1, 2, 3</td></tr>
-
-  <!-- HERO -->
-  <tr><td style="padding:40px 32px 30px;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:800; font-size:66px; line-height:0.9; letter-spacing:-3px; color:#111111;">1, 2, 3 Polka.</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:30px; line-height:1.1; letter-spacing:-1px; color:#111111; padding-top:26px;">3 contenus choisis,<br>loin du bruit, près du fond,<br>une fois par mois, par Polka.</div>
-  </td></tr>
-
-  <!-- DATE + INTRO -->
-  <tr><td style="padding:24px 32px 0;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:32px; letter-spacing:-1px; color:#111111;">Juin 2026. <span style="font-weight:500; font-size:16px; letter-spacing:0; color:#888888;">— Spécial IA</span></div>
-  </td></tr>
-  <tr><td style="padding:22px 32px 0; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:1.55; color:#111111;">
-    <p style="margin:0 0 18px;">Ce mois-ci, je suis tombé par hasard sur 2 contenus, de 2 leaders d'opinion (trèèèès éloignés) qui partagent leur vision sur un même thème : l'avenir de notre société dans le contexte de la révolution technologique de l'IA. Le premier était évoqué dans une de mes newsletters préférées (Cortex Havas) : une réflexion, genre manifeste, d'OpenAI. Et le second m'a été recommandé par ma psy (grande littéraire, au goût très éclectique) : la lettre encyclique du Pape Léon XIV. Les 2 contenus sont évidemment écrits dans des contextes très différents, avec des visées très différentes, on est d'accord ! Mais je trouvais quand même intéressant de comprendre s'il y avait une forme de convergence, de divergence… ou alors rien du tout d'intéressant à dire.</p>
-    <p style="margin:0 0 40px;"><strong>Au programme, 3 temps :</strong><br>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">1, 2, 3</a>
+    <div class="nav-links">
+      <a href="#dernier-numero">Dernier numéro</a>
+      <a href="#archives">Archives</a>
+    </div>
+  </div>
+</nav>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">1, 2, 3 Polka.</h1>
+    <p class="hero-tagline">3 contenus choisis,<br>loin du bruit, près du fond,<br>une fois par mois, par Polka.</p>
+  </div>
+</header>
+<!-- ============================================ -->
+<!-- N°02 — JUIN 2026 — DERNIER NUMÉRO — SPÉCIAL IA -->
+<!-- ============================================ -->
+<section class="issue" id="dernier-numero">
+  <div class="issue-inner">
+    <h2 class="issue-date">Juin 2026.</h2>
+    <p class="issue-intro">Ce mois-ci, je suis tombé par hasard sur 2 contenus, de 2 leaders d'opinion (trèèèès éloignés) qui partagent leur vision sur un même thème : l'avenir de notre société dans le contexte de la révolution technologique de l'IA. Le premier était évoqué dans une de mes newsletters préférées (Cortex Havas) : une réflexion, genre manifeste, d'OpenAI. Et le second m'a été recommandé par ma psy (grande littéraire, au goût très éclectique) : la lettre encyclique du Pape Léon XIV. Les 2 contenus sont évidemment écrits dans des contextes très différents, avec des visées très différentes, on est d'accord ! Mais je trouvais quand même intéressant de comprendre s'il y avait une forme de convergence, de divergence… ou alors rien du tout d'intéressant à dire.<br><br>
+      <strong>Au programme, 3 temps :</strong><br>
       1. ce que je retiens de la réflexion d'OpenAI<br>
       2. ce que je retiens de l'encyclique du saint Pape Léon XIV<br>
-      3. <strong>(le meilleur)</strong> les rapprochements que je me suis permis de faire entre les 2 — ma psy me l'avait pourtant déconseillé !</p>
-  </td></tr>
-
-  <!-- ===== 1 ===== -->
-  <tr><td style="padding:8px 32px 0;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:800; font-size:40px; letter-spacing:-2px; line-height:1; color:#111111;">1.</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:30px; letter-spacing:-1.5px; line-height:1.1; color:#111111; padding-top:8px;">Ce que je retiens d'OpenAI</div>
-  </td></tr>
-  <tr><td style="padding:26px 32px 0; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#111111;">
-    <div style="font-weight:700; font-size:18px; margin:0 0 12px;">1ère idée — La prospérité, pour tous.tes</div>
-    <p style="margin:0 0 16px;">OpenAI se veut très clair sur ce que doit être l'objectif de cette révolution technologique : la prospérité, pour tous.tes (clairement un slogan de campagne présidentielle !). La promesse serait de transformer une intelligence abondante en meilleures conditions de vie : baisser le coût des biens essentiels, guérir ou prévenir des maladies, lutter contre la pénurie alimentaire, accélérer la production d'énergie verte. En somme, ils souhaitent transformer le progrès technique en progrès social.</p>
-    <p style="margin:0 0 16px;">OpenAI évoque des solutions méga concrètes : le Fonds de richesse publique (une part des gains de l'IA reversée à chaque citoyen) ; des projets pilotes de semaine de quatre jours sans perte de salaire.</p>
-    <p style="margin:0 0 16px;">« Les promesses n'engagent que ceux qui y croient » — comme dirait ce cher Chirac. Un rêve d'avoir réussi à caler une citation du style.</p>
-
-    <div style="font-weight:700; font-size:18px; margin:28px 0 12px;">2ème idée — Les marchés, seuls, ne géreront pas ça</div>
-    <p style="margin:0 0 16px;">OpenAI alerte sur un point : les marchés ne pourront pas gérer seuls les inégalités causées par cette révolution — on a besoin du politique (d'un nouveau genre !). L'intelligence abondante déployée risque de remodeler des industries entières à une vitesse et une échelle dingues : des milliers d'emplois devraient disparaître ou évoluer, et même naître. Mais un point clé : ces changements n'arriveraient pas de façon homogène et cadrée, mais de manière anarchique, sans pouvoir s'anticiper vraiment. Ceux qui risquent de souffrir le plus de ces changements sont (comme souvent) les plus fragiles. Pour ne pas creuser encore plus les inégalités, il va donc falloir cadrer, encadrer, et surtout recadrer en continu.</p>
-    <p style="margin:0 0 16px;">En temps normal, OpenAI considère que le capitalisme imparfait s'autogère plutôt pas mal. Mais là, ils insistent sur la nécessité d'une nouvelle politique industrielle, adaptée à cette révolution. Face à la révolution de la voiture, le risque était visible, et assez lent — pratique pour légiférer après coup. Alors que, face à l'IA, le risque est opaque, et très rapide. C'est pour cette raison qu'OpenAI plaide pour une vraie nouvelle politique industrielle basée sur de nouveaux mécanismes, un nouveau timing, et non du bricolage avec les outils existants.</p>
-
-    <div style="font-weight:700; font-size:18px; margin:28px 0 12px;">3ème idée — Le vrai enjeu : l'agilité de nos systèmes</div>
-    <p style="margin:0 0 16px;">OpenAI met l'accent sur le mode de régulation le plus utile (j'aime beaucoup son point) : l'agilité de nos systèmes politiques et juridiques face à l'innovation continue. Le but du jeu : ne pas se faire dépasser par la rapidité de ces groupes privés, et garder une maîtrise sur l'usage de ces systèmes, pour s'assurer qu'on produit du bon, pour tous.tes. Il faut que nos institutions (l'État, les régulateurs, la justice) soient capables de réagir et de s'ajuster en continu, à mesure que la techno évolue.</p>
-    <p style="margin:0 0 16px;">Quelques exemples : un système de surveillance en temps réel, de la transparence avec la publication des spécifications des modèles, le signalement des incidents et usages détournés auprès d'une autorité publique. Grâce à ça, on pourrait encadrer en live l'impact réel de ces moteurs intelligents, et en tirer le meilleur !!!</p>
-  </td></tr>
-
-  <!-- ===== 2 ===== -->
-  <tr><td style="padding:34px 32px 0;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:800; font-size:40px; letter-spacing:-2px; line-height:1; color:#111111;">2.</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:30px; letter-spacing:-1.5px; line-height:1.1; color:#111111; padding-top:8px;">Place à Léon XIV</div>
-  </td></tr>
-  <tr><td style="padding:26px 32px 0; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#111111;">
-    <p style="margin:0 0 16px;">D'abord, ce qui m'a surpris (dans sa très longue introduction) : le Pape ne se prononce pas "pour ou contre" la technologie, qu'il décrit comme une réalité profondément humaine, qui n'est pas à remettre en question. En revanche, à nous de choisir la logique dans laquelle on oriente cette révolution : la logique de la puissance, ou celle du bien commun ?</p>
-    <p style="margin:0 0 16px;">Longtemps, les États ont financé et orienté les innovations de rupture via le militaire ou la recherche publique (GPS, nucléaire, Internet). Aujourd'hui, ça semble différent : ce sont quelques grands acteurs privés (parfois plus puissants que des États) qui détiennent ce pouvoir. Dans ce contexte, le Pape pose deux problèmes.</p>
-
-    <div style="font-weight:700; font-size:18px; margin:28px 0 12px;">1er problème — Comment orienter ce pouvoir vers le bien commun ?</div>
-    <p style="margin:0 0 16px;">Bon, à première vue, ça paraît très compliqué. Toute technologie fait des choix (ce qu'elle mesure, ce qu'elle ignore, ce qu'elle met en avant) — et embarque forcément une vision de l'humain. C'est un argument central du Pape : l'IA n'est pas neutre ! Ceux qui détiennent les ressources techniques pourraient donc imposer ce qu'il faut croire ou penser. Bof, avec l'idée de bien commun !</p>
-    <p style="margin:0 0 16px;">Le Pape parle d'une « IA cultivée plutôt que construite » (j'adore cette idée !) : puisqu'on cultive l'IA, celui qui la cultive est responsable de ce qui pousse. Ce serait donc à eux de vérifier que ce qu'ils font pousser est vraiment un bien commun.</p>
-    <p style="margin:0 0 16px;">Une piste intéressante concerne les données : selon Léon XIV, il faudrait donner aux gens le pouvoir de décider comment leurs données sont utilisées, car elles sont « le fruit de la contribution de tous ». Les données appartiennent moralement à la même famille que l'eau ou l'air — des biens destinés à tous — et devraient être gérées comme un bien commun, à réglementer et partager.</p>
-
-    <div style="font-weight:700; font-size:18px; margin:28px 0 12px;">2ème problème — La quête de l'humain optimisé ne nie-t-elle pas sa limite ?</div>
-    <p style="margin:0 0 16px;">Léon XIV considère que le danger n'est pas tel ou tel mauvais usage, mais qu'il réside dans la recherche absolue d'efficacité et d'optimisation — quand elle devient le critère absolu qui décide de ce qui compte et de ce qui peut être écarté. Que tout ce qui compte soit notre capacité à aller plus vite, plus viiite, plus viiiiiiiiite !</p>
-    <p style="margin:0 0 16px;">Le vrai péril serait qu'une vision anti-humaniste s'impose : celle où le graal consisterait à éliminer toute fragilité et à tout contrôler, où l'homme se voit comme un projet à optimiser. Le pape oppose à cela la beauté de la limite humaine : c'est précisément dans la finitude, la fragilité, la souffrance que naissent la compassion, l'amour, l'ouverture à l'autre — et donc le propre de l'homme.</p>
-    <p style="margin:0 0 16px;">Plus concrètement : c'est parce que notre mère, notre meilleur pote sont (parfois) fragiles qu'on prend soin d'eux, qu'on les aime. Un être humain parfait, tout le temps régulier, n'aurait besoin de personne. Ne pas tout savoir nous lie aux autres — car on a besoin d'eux, et c'est cool d'écouter des gens nous raconter ce qu'on ne sait pas. Moins savoir pour finir moins seuls, et être plus heureux !</p>
-  </td></tr>
-
-  <!-- ===== 3 ===== -->
-  <tr><td style="padding:34px 32px 0;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:800; font-size:40px; letter-spacing:-2px; line-height:1; color:#111111;">3.</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:28px; letter-spacing:-1.5px; line-height:1.1; color:#111111; padding-top:8px;">Des rapprochements OpenAI × Pape Léon XIV ?</div>
-  </td></tr>
-  <tr><td style="padding:26px 32px 0; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#111111;">
-    <div style="font-weight:700; font-size:18px; margin:0 0 12px;">Une convergence ?</div>
-    <p style="margin:0 0 16px;">Les deux réflexions partagent une même peur : la concentration du pouvoir. OpenAI est clair : « l'échec serait une IA contrôlée par quelques-uns », et le marché seul « ne suffit pas ». Le pape est aussi clair : le pouvoir technologique a « changé de mains », il devient « privatisé, opaque, difficile à orienter vers le bien commun ».</p>
-    <p style="margin:0 0 16px;">Les 2 réflexions partagent donc une croyance : il faut un cadre clair posé, animé et incarné par le politique, car la main invisible et l'algorithme ne vont pas redistribuer tout seuls. Ils évoquent une première solution de régulation : la transparence des modèles et des spécifications des plateformes.</p>
-    <p style="margin:0 0 16px;">MAIS booon, c'est là que l'exercice des rapprochements est assez fictif, tellement le contexte est différent. Le Pape est un spectateur de cette révolution : il livre une réflexion quasi philosophique, avec beaucoup de recul. Quand OpenAI — acteur clé de cette révolution — nous livre un manifeste de marque. Avec plus ou moins de marketinggg.</p>
-
-    <div style="font-weight:700; font-size:18px; margin:28px 0 12px;">La divergence de fond, que je trouve passionnante !</div>
-    <p style="margin:0 0 16px;">Ce qui est drôle, c'est que je trouvais que les 2 réflexions partageaient un autre point commun : le but de cette révolution, c'est du progrès social pour tous.tes — une vie meilleure, moins chère, plus sûre, pour le plus grand nombre.</p>
-    <p style="margin:0 0 16px;">Mais, en creusant, le Pape précise à un moment : « La qualité d'une civilisation ne se mesure pas à la puissance de ses moyens, mais à l'attention qu'elle sait offrir, à sa capacité à reconnaître l'autre comme un visage et non comme une fonction. » Je l'ai relue 18 fois, perso.</p>
-    <p style="margin:0 0 16px;">Sa hantise : une société plus riche, plus efficace… mais plus seule, dans laquelle on vit pour produire et optimiser. Il ajoute : « ce qui grandit sans mesure devient une forme de pauvreté. » OpenAI mesure le progrès à la prospérité — là où le Pape considère que la prospérité n'est pas la mesure de l'humain.</p>
-    <p style="margin:0 0 16px;">Passionnant — on pourrait faire 8 épisodes de 1, 2, 3 Polka dessus, mais je m'arrête là. Big up à ceux.lles qui ont lu jusque là !</p>
-  </td></tr>
-
-  <!-- FOOTER -->
-  <tr><td style="padding:44px 32px 40px;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td style="border-top:1px solid #e5e5e5; padding-top:26px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-        <div style="font-weight:700; font-size:26px; letter-spacing:-1px; color:#111111;">1, 2, 3 Polka.</div>
-        <div style="font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#888888; font-weight:500; padding-top:16px;">
-          © 2026 Polka &nbsp;·&nbsp; <a href="#" style="color:#888888; text-decoration:none;">Se désabonner</a>
+      3. <strong>(le meilleur)</strong> les rapprochements que je me suis permis de faire entre les 2 réflexions — ma psy me l'avait pourtant déconseillé !
+    </p>
+    <!-- 1 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">1.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Ce que je retiens d'OpenAI</h3>
+        <h4 class="subhead">1ère idée — La prospérité, pour tous.tes</h4>
+        <div class="prose">
+          <p>OpenAI se veut très clair sur ce que doit être l'objectif de cette révolution technologique : la prospérité, pour tous.tes (clairement un slogan de campagne présidentielle !). La promesse serait de transformer une intelligence abondante en meilleures conditions de vie : baisser le coût des biens essentiels, guérir ou prévenir des maladies, lutter contre la pénurie alimentaire, accélérer la production d'énergie verte. En somme, ils souhaitent transformer le progrès technique en progrès social.</p>
+          <p>OpenAI évoque des solutions méga concrètes : le Fonds de richesse publique (une part des gains de l'IA reversée à chaque citoyen) ; des projets pilotes de semaine de quatre jours sans perte de salaire.</p>
+          <p>« Les promesses n'engagent que ceux qui y croient » — comme dirait ce cher Chirac. Un rêve d'avoir réussi à caler une citation du style.</p>
         </div>
-      </td>
-    </tr></table>
-  </td></tr>
-
-</table>
-</td></tr>
-</table>
-
+        <h4 class="subhead">2ème idée — Les marchés, seuls, ne géreront pas ça</h4>
+        <div class="prose">
+          <p>OpenAI alerte sur un point : les marchés ne pourront pas gérer seuls les inégalités causées par cette révolution — on a besoin du politique (d'un nouveau genre !). L'intelligence abondante déployée risque de remodeler des industries entières à une vitesse et une échelle dingues : des milliers d'emplois devraient disparaître ou évoluer, et même naître. Mais un point clé : ces changements n'arriveraient pas de façon homogène et cadrée, mais de manière anarchique, sans pouvoir s'anticiper vraiment. Ceux qui risquent de souffrir le plus de ces changements sont (comme souvent) les plus fragiles. Pour ne pas creuser encore plus les inégalités, il va donc falloir cadrer, encadrer, et surtout recadrer en continu.</p>
+          <p>En temps normal, OpenAI considère que le capitalisme imparfait s'autogère plutôt pas mal. Mais là, ils insistent sur la nécessité d'une nouvelle politique industrielle, adaptée à cette révolution. Face à la révolution de la voiture, le risque était visible, et assez lent — pratique pour légiférer après coup. Alors que, face à l'IA, le risque est opaque, et très rapide. C'est pour cette raison qu'OpenAI plaide pour une vraie nouvelle politique industrielle basée sur de nouveaux mécanismes, un nouveau timing, et non du bricolage avec les outils existants.</p>
+        </div>
+        <h4 class="subhead">3ème idée — Le vrai enjeu : l'agilité de nos systèmes</h4>
+        <div class="prose">
+          <p>OpenAI met l'accent sur le mode de régulation de l'IA le plus utile (j'aime beaucoup son point) : l'agilité de nos systèmes politiques et juridiques face à l'innovation continue. Le but du jeu : ne pas se faire dépasser par la rapidité de l'innovation de ces groupes privés, et conserver une maîtrise sur l'usage de ces systèmes, pour s'assurer qu'on produit du bon, pour tous.tes. Il faut que nos institutions (l'État, les régulateurs, la justice) soient capables de réagir et de s'ajuster en continu, au fur et à mesure que la techno évolue : de l'agilité dans nos systèmes politiques et juridiques, dans la vraie vie.</p>
+          <p>Quelques exemples de ce que ça pourrait être : un système de surveillance en temps réel, de la transparence avec la publication des spécifications des modèles, le signalement des incidents et usages détournés auprès d'une autorité publique. Grâce à ces outils, on pourrait encadrer en live l'impact réel de ces moteurs intelligents, et en tirer le meilleur !!!</p>
+        </div>
+      </div>
+    </article>
+    <!-- 2 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">2.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Place à Léon XIV</h3>
+        <div class="prose">
+          <p>D'abord, ce qui m'a surpris (dans sa très longue introduction) : le Pape ne se prononce pas "pour ou contre" la technologie, qu'il décrit comme une réalité profondément humaine, qui n'est pas à remettre en question. En revanche, à nous de choisir la logique dans laquelle on soutient, on oriente cette révolution : la logique de la puissance, ou celle du bien commun ?</p>
+          <p>Longtemps, les États ont financé et orienté les innovations de rupture via le militaire ou la recherche publique (GPS, nucléaire, Internet). Aujourd'hui, ça semble différent : ce sont quelques grands acteurs privés (parfois plus puissants que des États) qui détiennent ce pouvoir. Dans ce contexte, le Pape pose deux problèmes.</p>
+        </div>
+        <h4 class="subhead">1er problème — Comment orienter ce pouvoir vers le bien commun ?</h4>
+        <div class="prose">
+          <p>Bon, à première vue, ça paraît très compliqué. Toute technologie fait des choix (ce qu'elle mesure, ce qu'elle ignore, ce qu'elle met en avant) — et embarque forcément une vision de l'humain. C'est un argument central du Pape : l'IA n'est pas neutre ! Ceux qui détiennent les ressources techniques pourraient donc imposer ce qu'il faut croire ou penser. Bof, avec l'idée de bien commun !</p>
+          <p>Le Pape parle d'une « IA cultivée plutôt que construite » (j'adore cette idée !) : puisqu'on cultive l'IA, celui qui la cultive est responsable de ce qui pousse. Ce serait donc à eux de vérifier que ce qu'ils font pousser est vraiment un bien commun.</p>
+          <p>Une piste intéressante concerne les données : selon Léon XIV, il faudrait donner aux gens le pouvoir de décider comment leurs données sont utilisées, car elles sont « le fruit de la contribution de tous ». Les données appartiennent moralement à la même famille que l'eau ou l'air — des biens destinés à tous — et devraient être gérées comme un bien commun, à réglementer et partager.</p>
+        </div>
+        <h4 class="subhead">2ème problème — La quête de l'humain optimisé ne nie-t-elle pas sa limite ?</h4>
+        <div class="prose">
+          <p>Léon XIV considère que le danger n'est pas tel ou tel mauvais usage, mais qu'il réside dans la recherche absolue d'efficacité et d'optimisation — quand elle devient le critère absolu qui décide de ce qui compte et de ce qui peut être écarté. Que tout ce qui compte soit notre capacité à aller plus vite, plus viiite, plus viiiiiiiiite !</p>
+          <p>Le vrai péril serait qu'une vision anti-humaniste s'impose : celle dans laquelle le graal consisterait à éliminer toute fragilité et à tout contrôler, où l'homme se voit comme un projet à optimiser. Le pape oppose à cela la beauté de la limite humaine : car c'est précisément dans la finitude, la fragilité, la souffrance que naissent la compassion, l'amour, l'ouverture à l'autre — et donc le propre de l'homme.</p>
+          <p>Plus concrètement : c'est parce que notre mère, notre meilleur pote sont (parfois) fragiles qu'on prend soin d'eux, qu'on les aime. Un être humain parfait, tout le temps régulier, n'aurait besoin de personne. Ne pas tout savoir nous lie aux autres — car on a besoin d'eux, et c'est cool d'écouter des gens nous raconter ce qu'on ne sait pas. Moins savoir pour finir moins seuls, et être plus heureux !</p>
+        </div>
+      </div>
+    </article>
+    <!-- 3 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">3.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Des rapprochements OpenAI × Pape Léon XIV ?</h3>
+        <h4 class="subhead">Une convergence ?</h4>
+        <div class="prose">
+          <p>Les deux réflexions partagent une même peur : la concentration du pouvoir. OpenAI est clair : « l'échec serait une IA contrôlée par quelques-uns », et le marché seul « ne suffit pas ». Le pape est aussi clair : le pouvoir technologique a « changé de mains », il devient « privatisé, opaque, difficile à orienter vers le bien commun ».</p>
+          <p>Les 2 réflexions partagent donc une croyance : il faut un cadre clair posé, animé et incarné par le politique, car la main invisible et l'algorithme ne vont pas redistribuer tout seuls. Ils évoquent une première solution de régulation : la transparence des modèles et des spécifications des plateformes.</p>
+          <p>MAIS booon, c'est là que l'exercice des rapprochements entre les 2 réflexions est assez fictif, tellement le contexte est différent. Le Pape est un spectateur de cette révolution : il nous partage une réflexion quasi philosophique, avec beaucoup de recul. Quand OpenAI — acteur clé de cette révolution — nous livre un manifeste de marque. Avec plus ou moins de marketinggg.</p>
+        </div>
+        <h4 class="subhead">La divergence de fond, que je trouve passionnante !</h4>
+        <div class="prose">
+          <p>Ce qui est drôle, c'est que je trouvais que les 2 réflexions partageaient un autre point commun : le but de cette révolution, c'est du progrès social pour tous.tes — une vie meilleure, moins chère, plus sûre, pour le plus grand nombre.</p>
+          <p>Mais, en creusant, le Pape précise à un moment : « La qualité d'une civilisation ne se mesure pas à la puissance de ses moyens, mais à l'attention qu'elle sait offrir, à sa capacité à reconnaître l'autre comme un visage et non comme une fonction. » Je l'ai relue 18 fois, perso.</p>
+          <p>Sa hantise : une société plus riche, plus efficace… mais plus seule, dans laquelle on vit pour produire et optimiser. Il ajoute : « ce qui grandit sans mesure devient une forme de pauvreté. » OpenAI mesure le progrès à la prospérité — là où le Pape considère que la prospérité n'est pas la mesure de l'humain.</p>
+          <p>Passionnant — on pourrait faire 8 épisodes de 1, 2, 3 Polka dessus, mais je m'arrête là. Big up à ceux.lles qui ont lu jusque là !</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- ============================================ -->
+<!-- ARCHIVES                                      -->
+<!-- ============================================ -->
+<section class="archives" id="archives">
+  <div class="archives-inner">
+    <div class="archives-head">
+      <h2 class="archives-title">Archives</h2>
+      <div class="archives-count">02 numéros</div>
+    </div>
+    <div>
+      <a href="#dernier-numero" class="archive-card">
+        <div class="archive-num">N°02</div>
+        <div class="archive-date">Juin 2026</div>
+        <h3 class="archive-title">Ce que je retiens d'OpenAI — L'encyclique du Pape Léon XIV — Rapprochements OpenAI × Pape</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+      <a href="numero-01.html" class="archive-card">
+        <div class="archive-num">N°01</div>
+        <div class="archive-date">Mai 2026</div>
+        <h3 class="archive-title">La puissance de l'ordinaire — La tech au service du business — Le luxe de ne pas choisir</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h2 class="footer-brand">1, 2, 3 Polka.</h2>
+    <div class="footer-links">
+      <a href="#dernier-numero">Dernier numéro</a>
+      <a href="#archives">Archives</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Polka</div>
+    <div><a href="#">Haut de page ↑</a></div>
+  </div>
+</footer>
 </body>
 </html>
