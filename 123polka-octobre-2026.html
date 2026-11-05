@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1, 2, 3 Polka</title>
+<meta name="description" content="3 contenus choisis, loin du bruit, près du fond, une fois par mois, par Polka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --ink-mute: #888888;
+    --line: #e5e5e5;
+    --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --t-xs: 13px;
+    --t-m: 18px;
+    --t-l: clamp(32px, 4.2vw, 48px);
+    --t-xl: clamp(60px, 11vw, 140px);
+    --tag-societe: #111111;
+    --tag-business: #111111;
+    --tag-culture: #111111;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: var(--t-m);
+    line-height: 1.55;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; }
+  em, i { font-style: normal; }
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+  }
+  .nav-brand {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 0.5; }
+  @media (max-width: 700px) {
+    .nav-inner { padding: 18px 22px; }
+    .nav-links { gap: 14px; }
+  }
+  /* HERO */
+  .hero { padding: 60px 40px 60px; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
+  .hero-title {
+    font-size: var(--t-xl);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -5px;
+    margin: 0 0 32px;
+  }
+  .hero-tagline {
+    font-size: var(--t-l);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+  }
+  @media (max-width: 700px) {
+    .hero { padding: 40px 22px 40px; }
+    .hero-title { letter-spacing: -2px; }
+    .hero-tagline { letter-spacing: -0.8px; }
+  }
+  /* ISSUE */
+  .issue { padding: 40px 40px 60px; }
+  .issue-inner { max-width: 1200px; margin: 0 auto; }
+  .issue-date {
+    font-size: var(--t-l);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 0 0 24px;
+  }
+  .issue-intro {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 1040px;
+    margin: 0 0 50px;
+    line-height: 1.5;
+  }
+  .issue-intro strong { font-weight: 700; }
+  /* Bloc d'introduction (plusieurs paragraphes) */
+  .issue-lede {
+    max-width: 1040px;
+    margin: 0 0 40px;
+  }
+  .issue-lede p {
+    font-size: var(--t-m);
+    margin: 0 0 18px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .issue-lede .q { color: var(--ink); }
+  .sommaire-takeaway {
+    color: var(--ink-mute);
+    font-weight: 400;
+  }
+  /* SECTION */
+  .section {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+  }
+  .section-meta {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  .section-num {
+    font-size: var(--t-l);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin: 0;
+  }
+  .section-body { max-width: 920px; }
+  .section-title {
+    font-size: var(--t-l);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 0 0 32px;
+  }
+  /* Sous-titres à l'intérieur d'une section */
+  .subhead {
+    font-size: var(--t-m);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 36px 0 14px;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+  }
+  .section-body > .section-title + .subhead {
+    margin-top: 0;
+  }
+  .prose p {
+    font-size: var(--t-m);
+    margin: 0 0 18px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .prose strong { font-weight: 600; }
+  .prose ol, .prose ul {
+    margin: 0 0 18px;
+    padding-left: 1.3em;
+  }
+  .prose li {
+    font-size: var(--t-m);
+    line-height: 1.65;
+    margin: 0 0 10px;
+  }
+  @media (max-width: 800px) {
+    .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+    .section-meta { position: static; }
+  }
+  @media (max-width: 700px) {
+    .issue { padding: 30px 22px 50px; }
+  }
+  /* ARCHIVES */
+  .archives {
+    padding: 80px 40px;
+    border-top: 1px solid var(--line);
+  }
+  .archives-inner { max-width: 1200px; margin: 0 auto; }
+  .archives-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .archives-title {
+    font-size: var(--t-l);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -1.5px;
+  }
+  .archives-count {
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .archive-card {
+    display: grid;
+    grid-template-columns: 80px 140px 1fr auto;
+    gap: 30px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .archive-card:hover { opacity: 0.6; }
+  .archive-num { font-size: var(--t-m); font-weight: 600; }
+  .archive-date {
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .archive-title {
+    font-size: var(--t-m);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+  }
+  .archive-arrow { font-size: var(--t-m); }
+  @media (max-width: 800px) {
+    .archive-card { grid-template-columns: 60px 1fr; gap: 16px; padding: 18px 0; }
+    .archive-date, .archive-arrow { display: none; }
+  }
+  @media (max-width: 700px) {
+    .archives { padding: 50px 22px; }
+  }
+  /* FOOTER */
+  .footer {
+    padding: 50px 40px 30px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-brand {
+    font-size: var(--t-l);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin: 0;
+  }
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  .footer-links a { text-decoration: none; color: var(--ink); }
+  .footer-links a:hover { opacity: 0.5; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bottom a { text-decoration: none; color: var(--ink-mute); }
+  .footer-bottom a:hover { color: var(--ink); }
+  @media (max-width: 700px) {
+    .footer { padding: 40px 22px 24px; }
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">1, 2, 3</a>
+    <div class="nav-links">
+      <a href="#dernier-numero">Dernier numéro</a>
+      <a href="#archives">Archives</a>
+    </div>
+  </div>
+</nav>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">1, 2, 3 Polka.</h1>
+    <p class="hero-tagline">3 contenus choisis,<br>loin du bruit, près du fond,<br>une fois par mois, par Polka.</p>
+  </div>
+</header>
+<!-- N°03 — OCTOBRE 2026 — DERNIER NUMÉRO -->
+<section class="issue" id="dernier-numero">
+  <div class="issue-inner">
+    <h2 class="issue-date">Octobre 2026.</h2>
+
+    <!-- INTRO -->
+    <div class="issue-lede">
+      <p>Je suis très content de vous partager ce nouveau numéro de 1, 2, 3 Polka.</p>
+      <p>Ce mois-ci, 123 Polka s'attaque à l'esprit critique. Et c'est quelque chose ! Les interprétations varient, les connotations sont nombreuses. C'est devenu un concept très populaire dans les médias, qui paraît en berne dans notre société.</p>
+      <p>Ma première expérience avec l'esprit critique est liée à ma mère. Plus jeune, un truc m'a marqué, que ma mère me répétait (trop) souvent : « Paul, le plus important à l'école c'est d'apprendre à réfléchir. »</p>
+      <p>C'est à ça que j'associe l'esprit critique : notre capacité à réfléchir par nous-même.</p>
+      <p>Côté Larousse, la définition est plus précise : « l'esprit critique est l'esprit de libre examen qui n'accepte aucune affirmation sans s'interroger sur sa valeur ».</p>
+      <p>Le Dictionnaire de philosophie de Christian Godin la précise encore davantage : « l'esprit critique est la disposition et attitude intellectuelles consistant à n'admettre rien de véritable qui n'ait été au préalable soumis à l'épreuve de la démonstration ».</p>
+      <p>En somme, je comprends que l'esprit critique, c'est d'abord un esprit qui questionne, qui doute. Après s'être dit ça, comment cet esprit s'acquiert : génétique ou social ? acquis ou inné ? on naît tous avec une certaine dose ? comment le développer ?</p>
+      <p>Dans ce 1, 2, 3 Polka, on va creuser cet angle : l'esprit critique, au fond, ça s'acquiert comment ? 3 contenus — qui m'ont marqué récemment — vont nous aider à y répondre.</p>
+    </div>
+
+    <!-- SOMMAIRE -->
+    <p class="issue-intro"><strong>1, 2, 3 Polka, ce mois-ci c'est :</strong><br>
+      1. Mon podcast préféré (les Lueurs) qui invitait Anne Méaux, patronne d'une agence de com de crise<br>
+      <span class="sommaire-takeaway">→ l'esprit critique, c'est avant tout une quête individuelle</span><br>
+      2. Un article à l'Opinion du super sociologue Gérald Bronner<br>
+      <span class="sommaire-takeaway">→ l'État joue un rôle clé dans le développement de cet esprit critique</span><br>
+      3. Un bête d'outil numérique construit par le média Bon Pote<br>
+      <span class="sommaire-takeaway">→ un outil gratuit et ouvert à tous pour développer son esprit critique</span>
+    </p>
+
+    <!-- 1 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">1.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Anne Méaux</h3>
+        <div class="prose">
+          <p>Entre deux punchlines, Anne Méaux partage des intuitions que je trouve clairvoyantes, puissantes. Cette femme est dans un mood plutôt libéral, qui responsabilise l'individu sur la construction de son esprit critique.</p>
+          <p>Elle nous donne quelques règles d'or pour développer cet esprit, en quelques points.</p>
+          <p>D'abord, pour elle, l'objectif suprême de l'esprit critique est de construire une pensée juste (pour ensuite agir en cohérence avec les faits et soi-même).</p>
+          <ol>
+            <li>Tout part d'abord de soi : réussir à se connecter à ses émotions, à ses ressentis.</li>
+            <li>Ensuite, les livres ont un rôle clé : lire, lire, lire nous rend à la fois plus consistant, dense et ouvert au monde &gt; prêt à appréhender et accepter la complexité.</li>
+            <li>La connexion à soi et (un peu) de culture nous permettent alors de questionner, de mettre en doute ce qu'on entend, ce qu'on nous dit, ce qu'on lit.</li>
+            <li>Progressivement, ce questionnement continu nous amène à la qualité suprême : le discernement !!!! Qui dit discernement, dit pensée juste.</li>
+          </ol>
+          <p>Reste un élément clé : avoir les bons mots pour verbaliser cette pensée juste. Sinon, elle risque d'être mal reçue et elle perdrait beaucoup de son intérêt.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">2.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Gérald Bronner</h3>
+        <div class="prose">
+          <p>Dans une tribune dans l'Opinion, Gérald Bronner détaille une espèce de plan pour ériger l'esprit critique en bien public. Ce sociologue affirme le rôle essentiel de l'État dans le développement de l'esprit critique.</p>
+          <p>L'objectif du plan : préserver la possibilité de notre intelligence collective, et avec elle notre démocratie.</p>
+          <p>C'est-à-dire ? → « Une démocratie ne tient pas seulement par ses institutions : elle tient par la qualité des jugements de ses citoyens ! »</p>
+          <p>Focus sur 4 mesures du plan Bronner, qui donnent plein d'idées.</p>
+        </div>
+        <h4 class="subhead">Mesure 1) Révolution pédagogique, de l'école maternelle jusqu'à l'université</h4>
+        <div class="prose">
+          <p>Deux objectifs pédagogiques sont clés :</p>
+          <ul>
+            <li>apprendre à distinguer une preuve d'une intuition ;</li>
+            <li>apprendre à penser dans un environnement où notre attention est continuellement captée, orientée et parfois manipulée (big up à ma mère, qui avait vu juste).</li>
+          </ul>
+          <p>Le rôle de l'école est clé, car on n'est pas tous égaux dans le développement de notre esprit critique. Gérald B le résume comme ça : « L'intelligence collective ne se décrète pas (…) Un environnement défavorable affecte la vigilance cognitive : le vrai et le rationnel ne se défendent pas tout seuls. »</p>
+          <p>Je comprends que chacun est capable de raisonner correctement, que chacun a en lui de quoi raisonner juste, mais que son environnement peut l'en empêcher.</p>
+        </div>
+        <h4 class="subhead">Mesure 2) Adosser chaque ministère à un conseil scientifique pluraliste et indépendant (avec un pouvoir consultatif)</h4>
+        <div class="prose">
+          <p>Le but du jeu : chaque fois qu'un ministre s'écarte de recommandations étayées de ce conseil, il devrait le justifier publiquement. Cette obligation ne supprime pas l'autonomie politique, mais elle obligerait nos dirigeants à dire pourquoi ils choisissent d'agir ainsi, malgré l'avis du conseil.</p>
+        </div>
+        <h4 class="subhead">Mesure 3) Créer un ministère du Temps long</h4>
+        <div class="prose">
+          <p>Nos politiques publiques sont contraintes au quotidien par l'urgence de l'actualité, les élections à venir, le buzz du moment — alors qu'en parallèle, les grands défis modernes (la défense du climat, la lutte contre la pauvreté…) demandent du temps long : de l'analyse, des actions qui ne sont rentables qu'au bout de plusieurs années.</p>
+          <p>Ce ministère serait chargé de vérifier la compatibilité de chaque grande politique publique avec les intérêts des générations futures. Avant les grands arbitrages, il publierait un avis sur leurs effets à dix, vingt et trente ans.</p>
+        </div>
+        <h4 class="subhead">Mesure 4) Institutionnaliser la fonction d'avocat du diable (j'adore !)</h4>
+        <div class="prose">
+          <p>Avant chaque grande décision publique, une équipe serait chargée de contester l'hypothèse dominante, les biais de groupe et les conséquences imprévues.</p>
+          <p>Punchline : « Une démocratie mature ne redoute pas la contradiction : elle la transforme en méthode. »</p>
+          <p>Gérald Bronner est sociologue, professeur à Sorbonne Université. Et il est aussi passé aux Lueurs :) À écouter, à regarder <a href="https://www.youtube.com/watch?v=X2jYVG80Gfo" target="_blank" rel="noopener">ici</a>.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="section">
+      <div class="section-meta">
+        <div class="section-num">3.</div>
+      </div>
+      <div class="section-body">
+        <h3 class="section-title">Leurs-votes.fr</h3>
+        <h4 class="subhead">« Le RN, c'est le parti du pouvoir d'achat des gens modestes, contre les riches. »</h4>
+        <div class="prose">
+          <p>Le 4 décembre 2025, un amendement propose de baisser la CSG sur les salaires modestes et de l'augmenter sur les revenus du capital. Le RN vote contre : 0 pour, 75 contre (le reste absent). Il se retrouve côte à côte avec Renaissance (EPR, 66 contre) et Les Républicains (26 contre) ; ce sont LFI (44 pour) et les communistes (GDR) qui le soutiennent.</p>
+          <p>→ Un transfert de charge des petits salaires vers le capital : le « parti des oubliés » a voté non.</p>
+        </div>
+        <h4 class="subhead">« Le PS veut taxer les riches, il est solidaire du reste de la gauche sur la fiscalité. »</h4>
+        <div class="prose">
+          <p>Le 14 janvier 2026, un amendement propose de rendre permanente la surtaxe sur les hauts revenus. Le PS s'abstient : 1 pour, 1 contre, 15 abstentions (le reste absent). LFI, les Écologistes et les communistes, eux, votent pour.</p>
+          <p>→ Sur une mesure emblématique « taxer durablement les plus aisés », le PS ne suit pas la gauche : il s'abstient.</p>
+          <p>Cet outil numérique <a href="https://www.leurs-votes.fr/" target="_blank" rel="noopener">leurs-votes.fr</a> est assez dingue. C'est une plateforme développée par le média Bon Pote à l'occasion de l'élection présidentielle 2027.</p>
+          <p>On a tous une intuition sur ce que défend tel ou tel parti, nourrie par ce qu'il raconte de lui-même. Cet outil permet de confronter notre intuition aux faits : sujet par sujet, comment chacun a voté. Et l'écart entre le récit et les faits est souvent frappant : dans les deux sens, d'ailleurs, ce qui est très drôle !</p>
+          <p>C'est un super exemple de dispositif qui met l'esprit critique à la portée de tous, gratuitement.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- ARCHIVES -->
+<section class="archives" id="archives">
+  <div class="archives-inner">
+    <div class="archives-head">
+      <h2 class="archives-title">Archives</h2>
+      <div class="archives-count">03 numéros</div>
+    </div>
+    <div>
+      <a href="#dernier-numero" class="archive-card">
+        <div class="archive-num">N°03</div>
+        <div class="archive-date">Octobre 2026</div>
+        <h3 class="archive-title">Anne Méaux : la quête individuelle — Gérald Bronner : le rôle de l'État — Leurs-votes.fr : l'outil</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+      <a href="numero-02.html" class="archive-card">
+        <div class="archive-num">N°02</div>
+        <div class="archive-date">Juin 2026</div>
+        <h3 class="archive-title">Ce que je retiens d'OpenAI — L'encyclique du Pape Léon XIV — Rapprochements OpenAI × Pape</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+      <a href="numero-01.html" class="archive-card">
+        <div class="archive-num">N°01</div>
+        <div class="archive-date">Mai 2026</div>
+        <h3 class="archive-title">La puissance de l'ordinaire — La tech au service du business — Le luxe de ne pas choisir</h3>
+        <div class="archive-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h2 class="footer-brand">1, 2, 3 Polka.</h2>
+    <div class="footer-links">
+      <a href="#dernier-numero">Dernier numéro</a>
+      <a href="#archives">Archives</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Polka</div>
+    <div><a href="#">Haut de page ↑</a></div>
+  </div>
+</footer>
+</body>
+</html>
