@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf9f6;          /* blanc cassé chaud (papier) */
+    --bg: #faf9f6;
     --ink: #121110;
     --ink-mute: #8a857c;
     --line: #e4e0d7;
@@ -24,15 +24,9 @@
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0; padding: 0; font-family: var(--sans);
-    background: var(--bg); color: var(--ink);
-    font-size: var(--t-m); line-height: 1.45; font-weight: 400;
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  }
+  body { margin: 0; padding: 0; font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: var(--t-m); line-height: 1.45; font-weight: 400; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   a { color: inherit; }
   em, i { font-style: normal; }
-  .wrap { max-width: var(--wrap); margin: 0 auto; }
   /* NAV */
   .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
   .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; max-width: var(--wrap); margin: 0 auto; }
@@ -52,13 +46,12 @@
   .issue-inner { max-width: var(--wrap); margin: 0 auto; }
   .issue-date { font-size: var(--t-l); font-weight: 700; letter-spacing: -1px; margin: 0 0 20px; }
   .issue-lede p { font-size: var(--t-m); margin: 0 0 13px; color: var(--ink); line-height: 1.5; }
-  /* SOMMAIRE (texte normal, non encadré) */
   .sommaire { margin: 26px 0 8px; }
   .sommaire .som-head { font-weight: 700; margin: 0 0 12px; }
   .sommaire .som-item { margin: 0 0 12px; line-height: 1.45; }
   .sommaire .som-n { font-weight: 700; }
   .sommaire .som-take { display: block; font-size: 14px; color: var(--ink-mute); margin-top: 2px; }
-  /* SECTION — colonne unique, bien alignée */
+  /* SECTION */
   .section { padding: 30px 0; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
   .section-kicker { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; margin: 0 0 10px; font-variant-numeric: tabular-nums; }
   .section-title { font-size: var(--t-l); font-weight: 700; line-height: 1.08; letter-spacing: -1px; margin: 0 0 20px; }
@@ -68,8 +61,13 @@
   .prose strong { font-weight: 600; }
   .prose ol, .prose ul { margin: 0 0 13px; padding-left: 1.25em; }
   .prose li { font-size: var(--t-m); line-height: 1.5; margin: 0 0 7px; }
+  /* Lien brut mis en avant en fin de contenu */
+  .go-wrap { margin: 22px 0 2px; }
+  .go { display: inline-block; max-width: 100%; font-weight: 700; color: var(--accent); text-decoration: none; font-size: 15px; border: 1px solid var(--accent); border-radius: 6px; padding: 10px 14px; word-break: break-all; transition: all .15s; }
+  .go::before { content: "\2197  "; }
+  .go:hover { background: var(--accent); color: #fff; }
   @media (max-width: 700px) { .issue { padding: 18px 22px 40px; } .section { padding: 26px 0; } }
-  /* ARCHIVES — met en avant les AUTRES éditions */
+  /* ARCHIVES */
   .archives { padding: 56px 32px; border-top: 1px solid var(--line); }
   .archives-inner { max-width: var(--wrap); margin: 0 auto; }
   .archives-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 16px; border-bottom: 1px solid var(--ink); gap: 16px; flex-wrap: wrap; }
@@ -124,54 +122,49 @@
   <div class="issue-inner">
     <h2 class="issue-date">Octobre 2026.</h2>
 
-    <!-- INTRO (texte normal) -->
+    <!-- INTRO -->
     <div class="issue-lede">
-      <p>Je suis très content de vous partager ce nouveau numéro de 1, 2, 3 Polka.</p>
-      <p>Ce mois-ci, 123 Polka s'attaque à l'esprit critique. Et c'est quelque chose ! Les interprétations varient, les connotations sont nombreuses. C'est devenu un concept très populaire dans les médias, qui paraît en berne dans notre société.</p>
-      <p>Ma première expérience avec l'esprit critique est liée à ma mère. Plus jeune, un truc m'a marqué, que ma mère me répétait (trop) souvent : « Paul, le plus important à l'école c'est d'apprendre à réfléchir. »</p>
-      <p>C'est à ça que j'associe l'esprit critique : notre capacité à réfléchir par nous-même.</p>
-      <p>Côté Larousse, la définition est plus précise : « l'esprit critique est l'esprit de libre examen qui n'accepte aucune affirmation sans s'interroger sur sa valeur ».</p>
-      <p>Le Dictionnaire de philosophie de Christian Godin la précise encore davantage : « l'esprit critique est la disposition et attitude intellectuelles consistant à n'admettre rien de véritable qui n'ait été au préalable soumis à l'épreuve de la démonstration ».</p>
-      <p>En somme, je comprends que l'esprit critique, c'est d'abord un esprit qui questionne, qui doute. Après s'être dit ça, comment cet esprit s'acquiert : génétique ou social ? acquis ou inné ? on naît tous avec une certaine dose ? comment le développer ?</p>
       <p>Dans ce 1, 2, 3 Polka, on va creuser cet angle : l'esprit critique, au fond, ça s'acquiert comment ? 3 contenus (qui m'ont marqué récemment) vont nous aider à y répondre.</p>
     </div>
 
-    <!-- SOMMAIRE (normal, non encadré) -->
+    <!-- SOMMAIRE -->
     <div class="sommaire">
       <p class="som-head">1, 2, 3 Polka, ce mois-ci c'est :</p>
       <p class="som-item"><span class="som-n">1.</span> Mon podcast préféré (les Lueurs) qui invitait Anne Méaux, patronne d'une agence de com de crise
-        <span class="som-take">l'esprit critique, c'est avant tout une quête individuelle</span></p>
+        <span class="som-take">→ l'esprit critique, c'est avant tout une quête individuelle</span></p>
       <p class="som-item"><span class="som-n">2.</span> Un article à l'Opinion du super sociologue Gérald Bronner
-        <span class="som-take">l'État joue un rôle clé dans le développement de cet esprit critique</span></p>
+        <span class="som-take">→ l'État joue un rôle clé dans le développement de cet esprit critique</span></p>
       <p class="som-item"><span class="som-n">3.</span> Un bête d'outil numérique construit par le média Bon Pote
-        <span class="som-take">un outil gratuit et ouvert à tous pour développer son esprit critique</span></p>
+        <span class="som-take">→ un outil gratuit et ouvert à tous pour développer son esprit critique</span></p>
     </div>
 
     <!-- 1 -->
     <article class="section" id="c1">
       <div class="section-kicker">1.</div>
-      <h3 class="section-title">Anne Méaux</h3>
+      <h3 class="section-title">l'esprit critique : une quête personnelle</h3>
       <div class="prose">
         <p>Entre deux punchlines, Anne Méaux partage des intuitions que je trouve clairvoyantes, puissantes. Cette femme est dans un mood plutôt libéral, qui responsabilise l'individu sur la construction de son esprit critique.</p>
         <p>Elle nous donne quelques règles d'or pour développer cet esprit, en quelques points.</p>
-        <p>D'abord, pour elle, l'objectif suprême de l'esprit critique est de construire une pensée juste (pour ensuite agir en cohérence avec les faits et soi-même).</p>
+        <p>D'abord, pour elle, l'objectif suprême de l'esprit critique est de construire une pensée juste. Construire une pensée juste pour ensuite pouvoir décider ou agir en cohérence avec les faits et soi-même.</p>
         <ol>
-          <li>Tout part d'abord de soi : réussir à se connecter à ses émotions, à ses ressentis.</li>
-          <li>Ensuite, les livres ont un rôle clé : lire, lire, lire nous rend à la fois plus consistant, dense et ouvert au monde &gt; prêt à appréhender et accepter la complexité.</li>
-          <li>La connexion à soi et (un peu) de culture nous permettent alors de questionner, de mettre en doute ce qu'on entend, ce qu'on nous dit, ce qu'on lit.</li>
-          <li>Progressivement, ce questionnement continu nous amène à la qualité suprême : le discernement !!!! Qui dit discernement, dit pensée juste.</li>
+          <li>Tout partirait d'abord de soi : réussir à se connecter à ses émotions, à ses ressentis (plus facile à dire qu'à faire!)</li>
+          <li>Ensuite, les livres ont un rôle clé : lire, lire, lire. Lire nous rendrait à la fois plus consistant, dense et ouvert au monde - et alors on serait prêt à appréhender la complexité des choses, et du monde.</li>
+          <li>La connexion à soi et la lecture doivent nous permettre d'être capable de questionner, de mettre en doute ce qu'on entend, ce qu'on nous dit, ce qu'on lit.</li>
+          <li>Progressivement, ce questionnement continu doit nous amener - selon elle - à la qualité suprême : le discernement !!!! Qui dit discernement, dit pensée juste.</li>
         </ol>
-        <p>Reste un élément clé : avoir les bons mots pour verbaliser cette pensée juste. Sinon, elle risque d'être mal reçue et elle perdrait beaucoup de son intérêt.</p>
+        <p>Reste un élément clé (qui me parle beaucoup personnellement!) : avoir les bons mots pour verbaliser cette pensée juste. Sinon, elle pourrait être mal reçue et elle perdrait alors beaucoup de son intérêt.</p>
+        <p>Je trouve ces grands principes justes, vers lesquels tendre. En étant bien conscient qu'ils demandent du temps, beaucoup de temps, car il faut souvent déconstruire un tas d'acquis, de fausses idées.</p>
       </div>
+      <div class="go-wrap"><a class="go" href="https://open.spotify.com/episode/1OqOYnnQAUwSTXe9GbPyL4?si=6f72aee7f613422b" target="_blank" rel="noopener">https://open.spotify.com/episode/1OqOYnnQAUwSTXe9GbPyL4</a></div>
     </article>
 
     <!-- 2 -->
     <article class="section" id="c2">
       <div class="section-kicker">2.</div>
-      <h3 class="section-title">Gérald Bronner</h3>
+      <h3 class="section-title">l'esprit critique : un bien public précieux</h3>
       <div class="prose">
-        <p>Dans une tribune dans l'Opinion, Gérald Bronner détaille une espèce de plan pour ériger l'esprit critique en bien public. Ce sociologue affirme le rôle essentiel de l'État dans le développement de l'esprit critique.</p>
-        <p>L'objectif du plan : préserver la possibilité de notre intelligence collective, et avec elle notre démocratie. C'est-à-dire ? → « Une démocratie ne tient pas seulement par ses institutions : elle tient par la qualité des jugements de ses citoyens ! »</p> 
+        <p>Dans une tribune de l'Opinion, Gérald Bronner détaille une espèce de plan pour ériger l'esprit critique en bien public. Ce sociologue affirme le rôle essentiel de l'Etat dans le développement de l'esprit critique.</p>
+        <p>L'objectif du plan : préserver la possibilité de notre intelligence collective, et avec elle notre démocratie. Quel est le rapport ? Je cite : « une démocratie ne tient pas seulement par ses institutions : elle tient par la qualité des jugements de ses citoyens ! » J'en comprends : si les citoyens ne sont pas capables de penser librement, la démocratie perdrait de son sens. La démocratie ne reposerait pas uniquement sur le droit de vote, mais aussi sur la capacité des citoyens à se forger librement une opinion, pour un vote éclairé, conscient.</p>
         <p>Focus sur 4 mesures du plan Bronner, qui donnent plein d'idées.</p>
       </div>
       <h4 class="subhead">Mesure 1) Révolution pédagogique, de l'école maternelle jusqu'à l'université</h4>
@@ -184,44 +177,43 @@
         <p>Le rôle de l'école est clé, car on n'est pas tous égaux dans le développement de notre esprit critique. Gérald B le résume comme ça : « L'intelligence collective ne se décrète pas (…) Un environnement défavorable affecte la vigilance cognitive : le vrai et le rationnel ne se défendent pas tout seuls. »</p>
         <p>Je comprends que chacun est capable de raisonner correctement, que chacun a en lui de quoi raisonner juste, mais que son environnement peut l'en empêcher.</p>
       </div>
-      <h4 class="subhead">Mesure 2) Adosser chaque ministère à un conseil scientifique pluraliste et indépendant (avec un pouvoir consultatif)</h4>
+      <h4 class="subhead">Mesure 2) Adosser chaque ministère à un conseil scientifique pluraliste et indépendant</h4>
       <div class="prose">
         <p>Le but du jeu : chaque fois qu'un ministre s'écarte de recommandations étayées de ce conseil, il devrait le justifier publiquement. Cette obligation ne supprime pas l'autonomie politique, mais elle obligerait nos dirigeants à dire pourquoi ils choisissent d'agir ainsi, malgré l'avis du conseil.</p>
       </div>
       <h4 class="subhead">Mesure 3) Créer un ministère du Temps long</h4>
       <div class="prose">
-        <p>Nos politiques publiques sont contraintes au quotidien par l'urgence de l'actualité, les élections à venir, le buzz du moment, alors qu'en parallèle, les grands défis modernes (la défense du climat, la lutte contre la pauvreté…) demandent du temps long : de l'analyse, des actions qui ne sont rentables qu'au bout de plusieurs années.</p>
+        <p>Nos politiques publiques sont contraintes par l'urgence de l'actualité, les élections à venir, le buzz du moment - alors qu'en parallèle, les grands défis modernes (la défense du climat, la lutte contre la pauvreté…) demandent du temps long : de l'analyse, des actions qui deviennent rentables qu'au bout de x années.</p>
         <p>Ce ministère serait chargé de vérifier la compatibilité de chaque grande politique publique avec les intérêts des générations futures. Avant les grands arbitrages, il publierait un avis sur leurs effets à dix, vingt et trente ans.</p>
       </div>
-      <h4 class="subhead">Mesure 4) Institutionnaliser la fonction d'avocat du diable (j'adore !)</h4>
+      <h4 class="subhead">Mesure 4) Institutionnaliser la fonction d'avocat du diable (ma préférée!)</h4>
       <div class="prose">
         <p>Avant chaque grande décision publique, une équipe serait chargée de contester l'hypothèse dominante, les biais de groupe et les conséquences imprévues.</p>
-        <p>Punchline : « Une démocratie mature ne redoute pas la contradiction : elle la transforme en méthode. »</p>
-        <p>Gérald Bronner est sociologue, professeur à Sorbonne Université. Et il est aussi passé aux Lueurs :) À écouter, à regarder <a href="https://www.youtube.com/watch?v=X2jYVG80Gfo" target="_blank" rel="noopener">ici</a>.</p>
+        <p>Punchline, je cite : « Une démocratie mature ne redoute pas la contradiction : elle la transforme en méthode. »</p>
+        <p>Gérald Bronner est sociologue, professeur à Sorbonne Université. Et il est aussi passé dans le podcast des Lueurs :) À écouter, à regarder :</p>
       </div>
+      <div class="go-wrap"><a class="go" href="https://www.youtube.com/watch?v=X2jYVG80Gfo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=X2jYVG80Gfo</a></div>
     </article>
 
     <!-- 3 -->
     <article class="section" id="c3">
       <div class="section-kicker">3.</div>
       <h3 class="section-title">Leurs-votes.fr</h3>
-      <h4 class="subhead">« Le RN, c'est le parti du pouvoir d'achat des gens modestes, contre les riches. »</h4>
       <div class="prose">
-        <p>Le 4 décembre 2025, un amendement propose de baisser la CSG sur les salaires modestes et de l'augmenter sur les revenus du capital. Le RN vote contre : 0 pour, 75 contre (le reste absent). Il se retrouve côte à côte avec Renaissance (EPR, 66 contre) et Les Républicains (26 contre) ; ce sont LFI (44 pour) et les communistes (GDR) qui le soutiennent.</p>
-        <p>→ Un transfert de charge des petits salaires vers le capital : le « parti des oubliés » a voté non.</p>
+        <p><strong>« Le RN, c'est le parti du pouvoir d'achat des gens modestes, contre les riches. » Vrai ? Pas toujours.</strong></p>
+        <p>Le 4 décembre 2025, un amendement à l'Assemblée propose de baisser la CSG sur les salaires modestes et l'augmenter de 10 points sur les revenus du capital.</p>
+        <p>→ Le RN vote contre : 75 contre, 0 pour, 1 abstention. Il se retrouve côte à côte avec Renaissance (EPR, 65 contre) et Les Républicains (26 contre).</p>
+        <p><strong>« Le PS veut taxer les riches. » Vrai ? Hmm, pas si simple.</strong></p>
+        <p>Le 14 janvier 2026, un amendement propose de rendre permanente la surtaxe sur les hauts revenus. Le PS s'abstient : 1 pour, 1 contre, 15 abstentions. LFI, les Écologistes et les communistes votent pour.</p>
+        <p>2 exemples tirés de l'outil numérique <a href="https://www.leurs-votes.fr/" target="_blank" rel="noopener">leurs-votes.fr</a>. Cet outil assez dingue est une plateforme développée par le média Bon Pote, à l'occasion de l'élection présidentielle 2027.</p>
+        <p>On a tous une intuition sur ce que défend tel ou tel parti politique, nourrie par ce qu'il raconte de lui-même. Cet outil permet de confronter notre intuition aux faits : sujet par sujet, comment chacun a voté. Et l'écart entre le récit et les faits est souvent frappant : dans les deux sens, d'ailleurs, ce qui est très drôle !</p>
+        <p>C'est un super exemple de dispositif qui met l'esprit critique à la portée de tous, gratuitement. J'adore !</p>
       </div>
-      <h4 class="subhead">« Le PS veut taxer les riches, il est solidaire du reste de la gauche sur la fiscalité. »</h4>
-      <div class="prose">
-        <p>Le 14 janvier 2026, un amendement propose de rendre permanente la surtaxe sur les hauts revenus. Le PS s'abstient : 1 pour, 1 contre, 15 abstentions (le reste absent). LFI, les Écologistes et les communistes, eux, votent pour.</p>
-        <p>→ Sur une mesure emblématique « taxer durablement les plus aisés », le PS ne suit pas la gauche : il s'abstient.</p>
-        <p>Cet outil numérique <a href="https://www.leurs-votes.fr/" target="_blank" rel="noopener">leurs-votes.fr</a> est assez dingue. C'est une plateforme développée par le média Bon Pote à l'occasion de l'élection présidentielle 2027.</p>
-        <p>On a tous une intuition sur ce que défend tel ou tel parti, nourrie par ce qu'il raconte de lui-même. Cet outil permet de confronter notre intuition aux faits : sujet par sujet, comment chacun a voté. Et l'écart entre le récit et les faits est souvent frappant : dans les deux sens, d'ailleurs, ce qui est très drôle !</p>
-        <p>C'est un super exemple de dispositif qui met l'esprit critique à la portée de tous, gratuitement.</p>
-      </div>
+      <div class="go-wrap"><a class="go" href="https://www.leurs-votes.fr/" target="_blank" rel="noopener">https://www.leurs-votes.fr/</a></div>
     </article>
   </div>
 </section>
-<!-- ARCHIVES — les autres éditions -->
+<!-- ARCHIVES -->
 <section class="archives" id="archives">
   <div class="archives-inner">
     <div class="archives-head">
