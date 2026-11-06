@@ -10,18 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --ink: #111111;
-    --ink-mute: #888888;
-    --line: #e5e5e5;
+    --bg: #faf9f6;          /* blanc cassé, légèrement chaud (papier) */
+    --ink: #121110;
+    --ink-mute: #8a857c;
+    --line: #e4e0d7;
     --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --t-xs: 13px;
-    --t-m: 18px;
-    --t-l: clamp(32px, 4.2vw, 48px);
-    --t-xl: clamp(60px, 11vw, 140px);
-    --tag-societe: #111111;
-    --tag-business: #111111;
-    --tag-culture: #111111;
+    --t-m: 17px;
+    --t-l: clamp(30px, 3.6vw, 42px);
+    --t-xl: clamp(54px, 9.5vw, 116px);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -32,282 +29,150 @@
     background: var(--bg);
     color: var(--ink);
     font-size: var(--t-m);
-    line-height: 1.55;
+    line-height: 1.45;
     font-weight: 400;
-    font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   a { color: inherit; }
   em, i { font-style: normal; }
   /* NAV */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--bg);
-  }
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
   .nav-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 40px; max-width: 1100px; margin: 0 auto;
   }
   .nav-brand {
-    font-size: var(--t-xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    color: var(--ink);
+    font-size: var(--t-xs); font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; text-decoration: none; color: var(--ink);
   }
-  .nav-links {
-    display: flex;
-    gap: 24px;
-    font-size: var(--t-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink);
-    transition: opacity 0.2s;
-  }
+  .nav-links { display: flex; gap: 22px; font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  .nav-links a { text-decoration: none; color: var(--ink); transition: opacity 0.2s; }
   .nav-links a:hover { opacity: 0.5; }
   @media (max-width: 700px) {
-    .nav-inner { padding: 18px 22px; }
+    .nav-inner { padding: 14px 22px; }
     .nav-links { gap: 14px; }
   }
   /* HERO */
-  .hero { padding: 60px 40px 60px; }
-  .hero-inner { max-width: 1200px; margin: 0 auto; }
+  .hero { padding: 44px 40px 36px; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
   .hero-title {
-    font-size: var(--t-xl);
-    font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -5px;
-    margin: 0 0 32px;
+    font-size: var(--t-xl); font-weight: 800; line-height: 0.92;
+    letter-spacing: -3px; margin: 0 0 24px;
   }
   .hero-tagline {
-    font-size: var(--t-l);
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    font-size: var(--t-l); font-weight: 700; color: var(--ink);
+    margin: 0; line-height: 1.12; letter-spacing: -0.8px;
   }
   @media (max-width: 700px) {
-    .hero { padding: 40px 22px 40px; }
-    .hero-title { letter-spacing: -2px; }
-    .hero-tagline { letter-spacing: -0.8px; }
+    .hero { padding: 32px 22px 28px; }
+    .hero-title { letter-spacing: -1.5px; }
+    .hero-tagline { letter-spacing: -0.4px; }
   }
   /* ISSUE */
-  .issue { padding: 40px 40px 60px; }
-  .issue-inner { max-width: 1200px; margin: 0 auto; }
+  .issue { padding: 24px 40px 48px; }
+  .issue-inner { max-width: 1100px; margin: 0 auto; }
   .issue-date {
-    font-size: var(--t-l);
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin: 0 0 24px;
+    font-size: var(--t-l); font-weight: 700; letter-spacing: -1px; margin: 0 0 20px;
   }
-  .issue-intro {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--ink);
-    max-width: 1040px;
-    margin: 0 0 50px;
-    line-height: 1.5;
+  .issue-lede { max-width: 760px; margin: 0 0 30px; }
+  .issue-lede p { font-size: var(--t-m); margin: 0 0 13px; color: var(--ink); line-height: 1.5; }
+  .issue-sommaire {
+    max-width: 760px; margin: 0 0 8px; padding: 22px 24px;
+    border: 1px solid var(--line); border-radius: 2px; background: #fffefb;
   }
-  .issue-intro strong { font-weight: 700; }
-  /* Bloc d'introduction (plusieurs paragraphes) */
-  .issue-lede {
-    max-width: 1040px;
-    margin: 0 0 40px;
+  .issue-sommaire .som-head {
+    font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1.5px;
+    font-weight: 700; color: var(--ink); margin: 0 0 14px;
   }
-  .issue-lede p {
-    font-size: var(--t-m);
-    margin: 0 0 18px;
-    color: var(--ink);
-    line-height: 1.65;
-  }
-  .issue-lede .q { color: var(--ink); }
-  .sommaire-takeaway {
-    color: var(--ink-mute);
-    font-weight: 400;
-  }
+  .som-item { padding: 10px 0; border-top: 1px solid var(--line); }
+  .som-item:first-of-type { border-top: none; padding-top: 0; }
+  .som-item .som-line { font-size: var(--t-m); line-height: 1.4; }
+  .som-item .som-n { font-weight: 700; }
+  .som-item .som-take { display: block; font-size: 14px; color: var(--ink-mute); margin-top: 3px; line-height: 1.4; }
   /* SECTION */
   .section {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 40px;
-    padding: 40px 0;
+    display: grid; grid-template-columns: 150px 1fr; gap: 34px;
+    padding: 30px 0; border-top: 1px solid var(--line);
+    scroll-margin-top: 72px;
   }
-  .section-meta {
-    position: sticky;
-    top: 100px;
-    align-self: start;
-  }
+  .section-meta { position: sticky; top: 72px; align-self: start; }
   .section-num {
-    font-size: var(--t-l);
-    font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin: 0;
+    font-size: 30px; font-weight: 800; line-height: 1; letter-spacing: -1px;
+    margin: 0 0 16px; font-variant-numeric: tabular-nums;
   }
-  .section-body { max-width: 920px; }
-  .section-title {
-    font-size: var(--t-l);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin: 0 0 32px;
-  }
-  /* Sous-titres à l'intérieur d'une section */
+  /* Navigation intelligente entre les 3 contenus */
+  .cross { display: flex; flex-direction: column; gap: 9px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .cross-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; color: var(--ink-mute); margin-bottom: 2px; }
+  .cross a { display: flex; gap: 9px; align-items: baseline; font-size: var(--t-xs); color: var(--ink-mute); text-decoration: none; line-height: 1.3; transition: color 0.2s; }
+  .cross a:hover { color: var(--ink); }
+  .cross a .cx-n { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .section-body { max-width: 720px; }
+  .section-title { font-size: var(--t-l); font-weight: 700; line-height: 1.08; letter-spacing: -1px; margin: 0 0 20px; }
   .subhead {
-    font-size: var(--t-m);
-    font-weight: 700;
-    color: var(--ink);
-    margin: 36px 0 14px;
-    line-height: 1.4;
-    letter-spacing: -0.2px;
+    font-size: var(--t-m); font-weight: 700; color: var(--ink);
+    margin: 26px 0 10px; line-height: 1.35; letter-spacing: -0.2px;
   }
-  .section-body > .section-title + .subhead {
-    margin-top: 0;
-  }
-  .prose p {
-    font-size: var(--t-m);
-    margin: 0 0 18px;
-    color: var(--ink);
-    line-height: 1.65;
-  }
+  .section-body > .section-title + .subhead { margin-top: 0; }
+  .prose p { font-size: var(--t-m); margin: 0 0 13px; color: var(--ink); line-height: 1.5; }
   .prose strong { font-weight: 600; }
-  .prose ol, .prose ul {
-    margin: 0 0 18px;
-    padding-left: 1.3em;
-  }
-  .prose li {
-    font-size: var(--t-m);
-    line-height: 1.65;
-    margin: 0 0 10px;
-  }
+  .prose ol, .prose ul { margin: 0 0 13px; padding-left: 1.25em; }
+  .prose li { font-size: var(--t-m); line-height: 1.5; margin: 0 0 7px; }
   @media (max-width: 800px) {
-    .section { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
-    .section-meta { position: static; }
+    .section { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+    .section-meta { position: static; display: flex; align-items: baseline; gap: 20px; }
+    .section-num { margin: 0; }
+    .cross { border-top: none; padding-top: 0; flex-direction: row; flex-wrap: wrap; gap: 14px; align-items: baseline; }
+    .cross-label { display: none; }
   }
   @media (max-width: 700px) {
-    .issue { padding: 30px 22px 50px; }
+    .issue { padding: 20px 22px 44px; }
+    .issue-sommaire { padding: 18px 18px; }
   }
   /* ARCHIVES */
-  .archives {
-    padding: 80px 40px;
-    border-top: 1px solid var(--line);
-  }
-  .archives-inner { max-width: 1200px; margin: 0 auto; }
+  .archives { padding: 60px 40px; border-top: 1px solid var(--line); }
+  .archives-inner { max-width: 1100px; margin: 0 auto; }
   .archives-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 18px; border-bottom: 1px solid var(--ink);
   }
-  .archives-title {
-    font-size: var(--t-l);
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: -1.5px;
-  }
-  .archives-count {
-    font-size: var(--t-xs);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--ink-mute);
-    font-weight: 500;
-  }
+  .archives-title { font-size: var(--t-l); font-weight: 700; margin: 0; letter-spacing: -1px; }
+  .archives-count { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-mute); font-weight: 500; }
   .archive-card {
-    display: grid;
-    grid-template-columns: 80px 140px 1fr auto;
-    gap: 30px;
-    align-items: baseline;
-    padding: 22px 0;
-    border-bottom: 1px solid var(--line);
-    text-decoration: none;
-    color: var(--ink);
+    display: grid; grid-template-columns: 70px 120px 1fr auto; gap: 26px;
+    align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line);
+    text-decoration: none; color: var(--ink);
   }
   .archive-card:hover { opacity: 0.6; }
-  .archive-num { font-size: var(--t-m); font-weight: 600; }
-  .archive-date {
-    font-size: var(--t-xs);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--ink-mute);
-    font-weight: 500;
-  }
-  .archive-title {
-    font-size: var(--t-m);
-    font-weight: 500;
-    line-height: 1.35;
-    margin: 0;
+  .archive-num { font-size: var(--t-m); font-weight: 700; }
+  .archive-date { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-mute); font-weight: 500; }
+  .archive-topics { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0; }
+  .archive-topics span { font-size: 15px; font-weight: 500; line-height: 1.3; position: relative; }
+  .archive-topics span + span::before {
+    content: ""; position: absolute; left: -9px; top: 50%; width: 3px; height: 3px;
+    background: var(--ink-mute); border-radius: 50%; transform: translateY(-50%);
   }
   .archive-arrow { font-size: var(--t-m); }
   @media (max-width: 800px) {
-    .archive-card { grid-template-columns: 60px 1fr; gap: 16px; padding: 18px 0; }
+    .archive-card { grid-template-columns: 54px 1fr; gap: 14px; padding: 16px 0; }
     .archive-date, .archive-arrow { display: none; }
   }
-  @media (max-width: 700px) {
-    .archives { padding: 50px 22px; }
-  }
+  @media (max-width: 700px) { .archives { padding: 44px 22px; } }
   /* FOOTER */
-  .footer {
-    padding: 50px 40px 30px;
-    border-top: 1px solid var(--line);
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .footer-brand {
-    font-size: var(--t-l);
-    font-weight: 700;
-    letter-spacing: -1px;
-    line-height: 1;
-    margin: 0;
-  }
-  .footer-links {
-    display: flex;
-    gap: 22px;
-    font-size: var(--t-xs);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-  }
+  .footer { padding: 42px 40px 26px; border-top: 1px solid var(--line); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 22px; }
+  .footer-brand { font-size: var(--t-l); font-weight: 700; letter-spacing: -0.8px; line-height: 1; margin: 0; }
+  .footer-links { display: flex; gap: 20px; font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
   .footer-links a { text-decoration: none; color: var(--ink); }
   .footer-links a:hover { opacity: 0.5; }
   .footer-bottom {
-    max-width: 1200px;
-    margin: 30px auto 0;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-    font-size: var(--t-xs);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--ink-mute);
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+    max-width: 1100px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-mute);
+    font-weight: 500; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
   }
   .footer-bottom a { text-decoration: none; color: var(--ink-mute); }
   .footer-bottom a:hover { color: var(--ink); }
-  @media (max-width: 700px) {
-    .footer { padding: 40px 22px 24px; }
-  }
+  @media (max-width: 700px) { .footer { padding: 34px 22px 22px; } }
 </style>
 </head>
 <body>
@@ -342,23 +207,35 @@
       <p>Côté Larousse, la définition est plus précise : « l'esprit critique est l'esprit de libre examen qui n'accepte aucune affirmation sans s'interroger sur sa valeur ».</p>
       <p>Le Dictionnaire de philosophie de Christian Godin la précise encore davantage : « l'esprit critique est la disposition et attitude intellectuelles consistant à n'admettre rien de véritable qui n'ait été au préalable soumis à l'épreuve de la démonstration ».</p>
       <p>En somme, je comprends que l'esprit critique, c'est d'abord un esprit qui questionne, qui doute. Après s'être dit ça, comment cet esprit s'acquiert : génétique ou social ? acquis ou inné ? on naît tous avec une certaine dose ? comment le développer ?</p>
-      <p>Dans ce 1, 2, 3 Polka, on va creuser cet angle : l'esprit critique, au fond, ça s'acquiert comment ? 3 contenus — qui m'ont marqué récemment — vont nous aider à y répondre.</p>
+      <p>Dans ce 1, 2, 3 Polka, on va creuser cet angle : l'esprit critique, au fond, ça s'acquiert comment ? 3 contenus (qui m'ont marqué récemment) vont nous aider à y répondre.</p>
     </div>
 
     <!-- SOMMAIRE -->
-    <p class="issue-intro"><strong>1, 2, 3 Polka, ce mois-ci c'est :</strong><br>
-      1. Mon podcast préféré (les Lueurs) qui invitait Anne Méaux, patronne d'une agence de com de crise<br>
-      <span class="sommaire-takeaway">→ l'esprit critique, c'est avant tout une quête individuelle</span><br>
-      2. Un article à l'Opinion du super sociologue Gérald Bronner<br>
-      <span class="sommaire-takeaway">→ l'État joue un rôle clé dans le développement de cet esprit critique</span><br>
-      3. Un bête d'outil numérique construit par le média Bon Pote<br>
-      <span class="sommaire-takeaway">→ un outil gratuit et ouvert à tous pour développer son esprit critique</span>
-    </p>
+    <div class="issue-sommaire">
+      <p class="som-head">1, 2, 3 Polka, ce mois-ci c'est</p>
+      <div class="som-item">
+        <div class="som-line"><span class="som-n">1.</span> Mon podcast préféré (les Lueurs) qui invitait Anne Méaux, patronne d'une agence de com de crise
+        <span class="som-take">l'esprit critique, c'est avant tout une quête individuelle</span></div>
+      </div>
+      <div class="som-item">
+        <div class="som-line"><span class="som-n">2.</span> Un article à l'Opinion du super sociologue Gérald Bronner
+        <span class="som-take">l'État joue un rôle clé dans le développement de cet esprit critique</span></div>
+      </div>
+      <div class="som-item">
+        <div class="som-line"><span class="som-n">3.</span> Un bête d'outil numérique construit par le média Bon Pote
+        <span class="som-take">un outil gratuit et ouvert à tous pour développer son esprit critique</span></div>
+      </div>
+    </div>
 
     <!-- 1 -->
-    <article class="section">
+    <article class="section" id="c1">
       <div class="section-meta">
-        <div class="section-num">1.</div>
+        <div class="section-num">01</div>
+        <nav class="cross">
+          <span class="cross-label">Aussi au sommaire</span>
+          <a href="#c2"><span class="cx-n">02</span> Gérald Bronner</a>
+          <a href="#c3"><span class="cx-n">03</span> Leurs-votes.fr</a>
+        </nav>
       </div>
       <div class="section-body">
         <h3 class="section-title">Anne Méaux</h3>
@@ -378,9 +255,14 @@
     </article>
 
     <!-- 2 -->
-    <article class="section">
+    <article class="section" id="c2">
       <div class="section-meta">
-        <div class="section-num">2.</div>
+        <div class="section-num">02</div>
+        <nav class="cross">
+          <span class="cross-label">Aussi au sommaire</span>
+          <a href="#c1"><span class="cx-n">01</span> Anne Méaux</a>
+          <a href="#c3"><span class="cx-n">03</span> Leurs-votes.fr</a>
+        </nav>
       </div>
       <div class="section-body">
         <h3 class="section-title">Gérald Bronner</h3>
@@ -406,7 +288,7 @@
         </div>
         <h4 class="subhead">Mesure 3) Créer un ministère du Temps long</h4>
         <div class="prose">
-          <p>Nos politiques publiques sont contraintes au quotidien par l'urgence de l'actualité, les élections à venir, le buzz du moment — alors qu'en parallèle, les grands défis modernes (la défense du climat, la lutte contre la pauvreté…) demandent du temps long : de l'analyse, des actions qui ne sont rentables qu'au bout de plusieurs années.</p>
+          <p>Nos politiques publiques sont contraintes au quotidien par l'urgence de l'actualité, les élections à venir, le buzz du moment, alors qu'en parallèle, les grands défis modernes (la défense du climat, la lutte contre la pauvreté…) demandent du temps long : de l'analyse, des actions qui ne sont rentables qu'au bout de plusieurs années.</p>
           <p>Ce ministère serait chargé de vérifier la compatibilité de chaque grande politique publique avec les intérêts des générations futures. Avant les grands arbitrages, il publierait un avis sur leurs effets à dix, vingt et trente ans.</p>
         </div>
         <h4 class="subhead">Mesure 4) Institutionnaliser la fonction d'avocat du diable (j'adore !)</h4>
@@ -419,9 +301,14 @@
     </article>
 
     <!-- 3 -->
-    <article class="section">
+    <article class="section" id="c3">
       <div class="section-meta">
-        <div class="section-num">3.</div>
+        <div class="section-num">03</div>
+        <nav class="cross">
+          <span class="cross-label">Aussi au sommaire</span>
+          <a href="#c1"><span class="cx-n">01</span> Anne Méaux</a>
+          <a href="#c2"><span class="cx-n">02</span> Gérald Bronner</a>
+        </nav>
       </div>
       <div class="section-body">
         <h3 class="section-title">Leurs-votes.fr</h3>
@@ -453,19 +340,19 @@
       <a href="#dernier-numero" class="archive-card">
         <div class="archive-num">N°03</div>
         <div class="archive-date">Octobre 2026</div>
-        <h3 class="archive-title">Anne Méaux : la quête individuelle — Gérald Bronner : le rôle de l'État — Leurs-votes.fr : l'outil</h3>
+        <div class="archive-topics"><span>Anne Méaux</span><span>Gérald Bronner</span><span>Leurs-votes.fr</span></div>
         <div class="archive-arrow">→</div>
       </a>
       <a href="numero-02" class="archive-card">
         <div class="archive-num">N°02</div>
         <div class="archive-date">Juin 2026</div>
-        <h3 class="archive-title">Ce que je retiens d'OpenAI — L'encyclique du Pape Léon XIV — Rapprochements OpenAI × Pape</h3>
+        <div class="archive-topics"><span>OpenAI</span><span>Pape Léon XIV</span><span>Rapprochements</span></div>
         <div class="archive-arrow">→</div>
       </a>
       <a href="numero-01" class="archive-card">
         <div class="archive-num">N°01</div>
         <div class="archive-date">Mai 2026</div>
-        <h3 class="archive-title">La puissance de l'ordinaire — La tech au service du business — Le luxe de ne pas choisir</h3>
+        <div class="archive-topics"><span>La puissance de l'ordinaire</span><span>La tech au service du business</span><span>Le luxe de ne pas choisir</span></div>
         <div class="archive-arrow">→</div>
       </a>
     </div>
