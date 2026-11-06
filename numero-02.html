@@ -14,6 +14,7 @@
     --ink: #121110;
     --ink-mute: #8a857c;
     --line: #e4e0d7;
+    --accent: #1E5541;      /* vert sapin — direction B */
     --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --wrap: 820px;
     --t-xs: 13px;
@@ -35,17 +36,11 @@
   .nav-links a:hover { opacity: 0.5; }
   @media (max-width: 700px) { .nav-inner { padding: 14px 22px; } .nav-links { gap: 14px; } }
   /* HERO */
-  .hero { padding: 44px 0 0; }
-  .hero-inner { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
-  .hero-title { font-size: var(--t-xl); font-weight: 800; line-height: 0.92; letter-spacing: -3px; margin: 0 0 28px; }
-  .marquee { overflow: hidden; white-space: nowrap; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 14px 0; }
-  .marquee-track { display: inline-block; white-space: nowrap; will-change: transform; animation: marquee 30s linear infinite; }
-  .marquee-track span { display: inline-block; font-size: clamp(26px, 5vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.12; }
-  .marquee-track .sep { padding: 0 26px; color: var(--ink-mute); font-weight: 400; }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (max-width: 700px) { .hero { padding: 30px 0 0; } .hero-inner { padding: 0 22px; } .hero-title { letter-spacing: -1.5px; } }
-  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+  .hero { padding: 44px 32px 32px; }
+  .hero-inner { max-width: var(--wrap); margin: 0 auto; }
+  .hero-title { font-size: var(--t-xl); font-weight: 800; line-height: 0.92; letter-spacing: -3px; margin: 0 0 22px; }
+  .hero-tagline { font-size: var(--t-l); font-weight: 700; color: var(--ink); margin: 0; line-height: 1.12; letter-spacing: -0.8px; }
+  @media (max-width: 700px) { .hero { padding: 30px 22px 26px; } .hero-title { letter-spacing: -1.5px; } .hero-tagline { letter-spacing: -0.4px; } }
   /* ISSUE */
   .issue { padding: 22px 32px 46px; }
   .issue-inner { max-width: var(--wrap); margin: 0 auto; }
@@ -97,6 +92,9 @@
   .footer-bottom a { text-decoration: none; color: var(--ink-mute); }
   .footer-bottom a:hover { color: var(--ink); }
   @media (max-width: 700px) { .footer { padding: 32px 22px 20px; } }
+  /* --- Accent (direction B — vert sapin) --- */
+  .issue-date, .section-kicker, .sommaire .som-n, .nav-brand, .archive-num, .prose a { color: var(--accent); }
+  .prose a { text-underline-offset: 3px; }
 </style>
 </head>
 <body>
@@ -114,11 +112,7 @@
 <header class="hero">
   <div class="hero-inner">
     <h1 class="hero-title">1, 2, 3 Polka.</h1>
-  </div>
-  <div class="marquee" aria-label="3 contenus choisis, loin du bruit, sur une question. par Polka">
-    <div class="marquee-track">
-      <span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span><span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span><span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span><span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span><span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span><span>3 contenus choisis, loin du bruit, sur une question. par Polka</span><span class="sep">·</span>
-    </div>
+    <p class="hero-tagline">3 contenus choisis,<br>loin du bruit, près du fond,<br>une fois par mois, par Polka.</p>
   </div>
 </header>
 <!-- N°02 — JUIN 2026 -->
