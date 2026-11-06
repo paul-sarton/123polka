@@ -63,9 +63,9 @@
   .prose li { font-size: var(--t-m); line-height: 1.5; margin: 0 0 7px; }
   /* Lien brut mis en avant en fin de contenu */
   .go-wrap { margin: 22px 0 2px; }
-  .go { display: inline-block; max-width: 100%; font-weight: 700; color: var(--accent); text-decoration: none; font-size: 15px; border: 1px solid var(--accent); border-radius: 6px; padding: 10px 14px; word-break: break-all; transition: all .15s; }
+  .go { display: inline-block; max-width: 100%; font-weight: 700; color: var(--accent); background: transparent; text-decoration: none; font-size: 15px; border: 1px solid var(--accent); border-radius: 6px; padding: 10px 14px; word-break: break-all; transition: background .15s; }
   .go::before { content: "\2197  "; }
-  .go:hover { background: var(--accent); color: #fff; }
+  .go:hover { background: #eef2ee; }
   @media (max-width: 700px) { .issue { padding: 18px 22px 40px; } .section { padding: 26px 0; } }
   /* ARCHIVES */
   .archives { padding: 56px 32px; border-top: 1px solid var(--line); }
@@ -121,11 +121,6 @@
 <section class="issue" id="dernier-numero">
   <div class="issue-inner">
     <h2 class="issue-date">Octobre 2026.</h2>
-
-    <!-- INTRO -->
-    <div class="issue-lede">
-      <p>Dans ce 1, 2, 3 Polka, on va creuser cet angle : l'esprit critique, au fond, ça s'acquiert comment ? 3 contenus (qui m'ont marqué récemment) vont nous aider à y répondre.</p>
-    </div>
 
     <!-- SOMMAIRE -->
     <div class="sommaire">
